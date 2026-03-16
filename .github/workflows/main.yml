@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Descargar repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Descargar datos de CelesTrak
         run: |
@@ -23,5 +23,5 @@ jobs:
           git config --global user.name "tle-bot"
           git config --global user.email "bot@example.com"
           git add tle/*.txt
-          git commit -m "update tle data" || echo "sin cambios"
+          git commit -m "update tle data" || exit 0
           git push
