@@ -5,12 +5,15 @@ on:
     - cron: "0 * * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Descargar datos de CelesTrak
@@ -20,8 +23,8 @@ jobs:
 
       - name: Commit cambios
         run: |
-          git config --global user.name "tle-bot"
-          git config --global user.email "bot@example.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git add tle/*.txt
-          git commit -m "update tle data" || exit 0
+          git commit -m "update tle data" || echo "sin cambios"
           git push
