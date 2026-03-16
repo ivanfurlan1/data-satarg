@@ -20,6 +20,7 @@ jobs:
         run: |
           curl -L "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle" -o tle/active.txt
           curl -L "https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=starlink&FORMAT=tle" -o tle/starlink-supplemental.txt
+          curl -L "https://celestrak.org/SpaceData/SW-Last5Years.csv" -o tle/space-weather.csv
 
       - name: Commit cambios
         run: |
