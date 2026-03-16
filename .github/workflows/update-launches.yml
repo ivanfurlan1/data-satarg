@@ -19,6 +19,7 @@ jobs:
       - name: Descargar próximos lanzamientos
         run: |
           curl -L "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20" -o launches/next-launches.json
+          curl -L "https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=20" -o launches/previous-launches.json
 
       - name: Commit cambios
         run: |
