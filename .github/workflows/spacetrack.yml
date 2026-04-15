@@ -19,8 +19,29 @@ jobs:
           "https://www.space-track.org/basicspacedata/query/class/gp/format/json" \
           -o all_objects.json
 
-      - name: Upload file
+      - name: Transform to custom JSON (future-proof)
+        run: |
+          jq '[.[] | {
+            id: .NORAD_CAT_ID,
+            name: .OBJECT_NAME,
+            type: .OBJECT_TYPE,
+            tle1: .TLE_LINE1,
+            tle2: .TLE_LINE2,
+            epoch: .EPOCH
+          }]' all_objects.json > satellites.json
+
+      - name: Generate legacy TLE file (for compatibility)
+        run: |
+          jq -r '.[] | "\(.OBJECT_NAME)\n\(.TLE_LINE1)\n\(.TLE_LINE2)"' all_objects.json > all_tle.txt
+
+      - name: Upload JSON (main data)
         uses: actions/upload-artifact@v4
         with:
-          name: space-track-data
-          path: all_objects.json
+          name: satellites-json
+          path: satellites.json
+
+      - name: Upload TLE (legacy)
+        uses: actions/upload-artifact@v4
+        with:
+          name: satellites-tle
+          path: all_tle.txt
