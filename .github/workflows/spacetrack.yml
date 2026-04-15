@@ -1,4 +1,4 @@
-name: Test SpaceTrack
+name: Fetch Space-Track Data
 
 on:
   workflow_dispatch:
@@ -13,7 +13,14 @@ jobs:
           curl -c cookies.txt -d "identity=${{ secrets.SPACETRACK_USER }}&password=${{ secrets.SPACETRACK_PASS }}" \
           https://www.space-track.org/ajaxauth/login
 
-      - name: Fetch ISS TLE
+      - name: Fetch ALL objects (GP JSON)
         run: |
           curl -b cookies.txt \
-          "https://www.space-track.org/basicspacedata/query/class/gp/norad_cat_id/25544/format/tle"
+          "https://www.space-track.org/basicspacedata/query/class/gp/format/json" \
+          -o all_objects.json
+
+      - name: Upload file
+        uses: actions/upload-artifact@v4
+        with:
+          name: space-track-data
+          path: all_objects.json
