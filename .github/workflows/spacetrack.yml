@@ -1,0 +1,17 @@
+name: Test SpaceTrack
+
+on:
+  workflow_dispatch:  # lo ejecutás manualmente
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login and fetch ISS TLE
+        run: |
+          curl -c cookies.txt -d "identity=${{ secrets.SPACETRACK_USER }}&password=${{ secrets.SPACETRACK_PASS }}" \
+          https://www.space-track.org/ajaxauth/login
+
+          curl -b cookies.txt \
+          "https://www.space-track.org/basicspacedata/query/class/tle_latest/NORAD_CAT_ID/25544/format/json"
