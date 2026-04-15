@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Login to Space-Track
         run: |
           curl -c cookies.txt -d "identity=${{ secrets.SPACETRACK_USER }}&password=${{ secrets.SPACETRACK_PASS }}" \
@@ -19,7 +22,7 @@ jobs:
           "https://www.space-track.org/basicspacedata/query/class/gp/format/json" \
           -o all_objects.json
 
-      - name: Transform to custom JSON (future-proof)
+      - name: Transform to custom JSON
         run: |
           jq '[.[] | {
             id: .NORAD_CAT_ID,
@@ -30,18 +33,15 @@ jobs:
             epoch: .EPOCH
           }]' all_objects.json > satellites.json
 
-      - name: Generate legacy TLE file (for compatibility)
+      - name: Generate TLE file (compatible with your web)
         run: |
-          jq -r '.[] | "\(.OBJECT_NAME)\n\(.TLE_LINE1)\n\(.TLE_LINE2)"' all_objects.json > all_tle.txt
+          mkdir -p tle
+          jq -r '.[] | "\(.OBJECT_NAME)\n\(.TLE_LINE1)\n\(.TLE_LINE2)"' all_objects.json > tle/all.txt
 
-      - name: Upload JSON (main data)
-        uses: actions/upload-artifact@v4
-        with:
-          name: satellites-json
-          path: satellites.json
-
-      - name: Upload TLE (legacy)
-        uses: actions/upload-artifact@v4
-        with:
-          name: satellites-tle
-          path: all_tle.txt
+      - name: Commit and push files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add satellites.json tle/all.txt
+          git commit -m "Update satellite data" || echo "No changes"
+          git push
