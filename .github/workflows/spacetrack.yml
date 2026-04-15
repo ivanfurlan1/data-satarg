@@ -24,25 +24,36 @@ jobs:
           "https://www.space-track.org/basicspacedata/query/class/gp/format/json" \
           -o all_objects.json
 
-      - name: Transform to ultra-compact JSON
+      - name: Transform filtered (last 14 days) + compact JSON
         run: |
-          jq '[.[] | [
-            .NORAD_CAT_ID,
-            .OBJECT_NAME,
-            .OBJECT_TYPE,
-            .TLE_LINE1,
-            .TLE_LINE2
-          ]]' all_objects.json > satellites.json
+          cutoff=$(date -u -d "14 days ago" +%Y-%m-%dT%H:%M:%S)
+          jq --arg cutoff "$cutoff" '
+            [.[] 
+            | select(.EPOCH >= $cutoff)
+            | [
+                .NORAD_CAT_ID,
+                .OBJECT_NAME,
+                .OBJECT_TYPE,
+                .TLE_LINE1,
+                .TLE_LINE2
+              ]
+            ]
+          ' all_objects.json > satellites.json
 
       - name: Generate TLE file (compatible with your web)
         run: |
           mkdir -p tle
-          jq -r '.[] | "\(.OBJECT_NAME)\n\(.TLE_LINE1)\n\(.TLE_LINE2)"' all_objects.json > tle/all.txt
+          cutoff=$(date -u -d "14 days ago" +%Y-%m-%dT%H:%M:%S)
+          jq -r --arg cutoff "$cutoff" '
+            .[] 
+            | select(.EPOCH >= $cutoff)
+            | "\(.OBJECT_NAME)\n\(.TLE_LINE1)\n\(.TLE_LINE2)"
+          ' all_objects.json > tle/all.txt
 
       - name: Commit and push files
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add satellites.json tle/all.txt
-          git commit -m "Update satellite data" || echo "No changes"
+          git commit -m "Update satellite data (14d filter)" || echo "No changes"
           git push
