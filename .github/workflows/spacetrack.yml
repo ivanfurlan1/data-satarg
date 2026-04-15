@@ -2,7 +2,7 @@ name: Fetch Space-Track Data
 
 on:
   schedule:
-    - cron: '17 * * * *'   # cada hora en minuto 17 (evita congestión)
+    - cron: '17 * * * *'   # cada hora (minuto 17)
   workflow_dispatch:
 
 jobs:
@@ -24,16 +24,15 @@ jobs:
           "https://www.space-track.org/basicspacedata/query/class/gp/format/json" \
           -o all_objects.json
 
-      - name: Transform to custom JSON
+      - name: Transform to ultra-compact JSON
         run: |
-          jq '[.[] | {
-            id: .NORAD_CAT_ID,
-            name: .OBJECT_NAME,
-            type: .OBJECT_TYPE,
-            tle1: .TLE_LINE1,
-            tle2: .TLE_LINE2,
-            epoch: .EPOCH
-          }]' all_objects.json > satellites.json
+          jq '[.[] | [
+            .NORAD_CAT_ID,
+            .OBJECT_NAME,
+            .OBJECT_TYPE,
+            .TLE_LINE1,
+            .TLE_LINE2
+          ]]' all_objects.json > satellites.json
 
       - name: Generate TLE file (compatible with your web)
         run: |
