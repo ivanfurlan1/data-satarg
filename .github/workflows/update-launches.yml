@@ -2,7 +2,7 @@ name: Update Launches
 
 on:
   schedule:
-    - cron: "7,22,37,52 * * * *"
+    - cron: "0,8,16,24,32,40,48 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -18,8 +18,8 @@ jobs:
 
       - name: Descargar próximos lanzamientos
         run: |
-          curl -L "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20" -o launches/next-launches.json
-          curl -L "https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=20" -o launches/previous-launches.json
+          curl -L "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=40" -o launches/next-launches.json
+          curl -L "https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=40" -o launches/previous-launches.json
 
       - name: Commit cambios
         run: |
@@ -27,4 +27,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add launches/*.json
           git commit -m "update launch data" || echo "sin cambios"
-          git push 
+          git push
