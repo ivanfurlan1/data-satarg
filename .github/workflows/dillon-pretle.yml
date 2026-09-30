@@ -1,0 +1,147 @@
+name: Update Dillon PreTLE
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dillon:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Get Dillon PreTLE
+        run: |
+          node <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          (async () => {
+            const browser = await chromium.launch({
+              headless: true
+            });
+
+            const page = await browser.newPage();
+
+            await page.goto('https://dillonsspacepage.com/pretle', {
+              waitUntil: 'domcontentloaded',
+              timeout: 60000
+            });
+
+            await page.waitForFunction(() => {
+              const text = document.body.innerText || '';
+
+              return (
+                text.includes('UPCOMING MISSIONS') &&
+                /(?:^|\n)1\s+\d{5}[A-Z]\s+/m.test(text) &&
+                /(?:^|\n)2\s+\d{5}\s+/m.test(text)
+              );
+            }, {
+              timeout: 60000
+            });
+
+            await page.waitForTimeout(3000);
+
+            const text = await page.locator('body').innerText();
+
+            await browser.close();
+
+            const lines = text
+              .split('\n')
+              .map(x => x.trim())
+              .filter(Boolean);
+
+            const missions = [];
+            let currentMission = null;
+            let currentLaunch = null;
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+
+              const header = line.match(
+                /^(.+?)NET:\s*(.+?)\s+UTC$/i
+              );
+
+              if (header) {
+                currentMission = header[1].trim();
+                currentLaunch = header[2].trim() + ' UTC';
+                continue;
+              }
+
+              if (/^1\s+\d{5}[A-Z]\s+/.test(line)) {
+                const tle1 = line;
+                const tle2 = lines[i + 1];
+
+                if (tle2 && /^2\s+\d{5}\s+/.test(tle2)) {
+                  let name = lines[i - 1] || '';
+
+                  name = name
+                    .replace(/\s+\d{6}\.\d{2}$/, '')
+                    .trim();
+
+                  missions.push({
+                    mission: currentMission,
+                    launch: currentLaunch,
+                    name: name,
+                    tle1: tle1,
+                    tle2: tle2
+                  });
+
+                  i++;
+                }
+              }
+            }
+
+            fs.mkdirSync('launches', {
+              recursive: true
+            });
+
+            const output = {
+              source: 'Dillon Space Page',
+              sourceUrl: 'https://dillonsspacepage.com/pretle',
+              updatedAt: new Date().toISOString(),
+              missions
+            };
+
+            fs.writeFileSync(
+              'launches/dillon-pretle.json',
+              JSON.stringify(output, null, 2) + '\n'
+            );
+
+            console.log(`Saved ${missions.length} TLE entries.`);
+          })().catch(error => {
+            console.error(error);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Save file to GitHub
+        run: |
+          git add -f launches/dillon-pretle.json
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git commit -m "Update Dillon PreTLE"
+            git push
+          fi
