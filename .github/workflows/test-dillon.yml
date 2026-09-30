@@ -1,0 +1,68 @@
+name: Test Dillon PreTLE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Read Dillon page
+        run: |
+          node <<'EOF'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+
+            const page = await browser.newPage();
+
+            console.log('Abriendo Dillon...');
+
+            await page.goto('https://dillonsspacepage.com/pretle', {
+              waitUntil: 'networkidle',
+              timeout: 60000
+            });
+
+            console.log('Página cargada. Esperando 10 segundos...');
+
+            await page.waitForTimeout(10000);
+
+            const html = await page.content();
+
+            require('fs').writeFileSync(
+              'dillon-rendered.html',
+              html
+            );
+
+            console.log('HTML guardado.');
+            console.log('Tamaño:', html.length);
+
+            await browser.close();
+          })();
+          EOF
+
+      - name: Show result
+        run: |
+          grep -i -E "Upcoming Missions|PreTLE|PRE-LAUNCH|TLE|TOTAL MISSIONS" dillon-rendered.html || true
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: dillon-test
+          path: dillon-rendered.html
