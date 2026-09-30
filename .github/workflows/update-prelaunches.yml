@@ -1,0 +1,106 @@
+name: Update Pre-Launches
+
+on:
+  schedule:
+    - cron: "10 0,2,4,6,8,10,12,14,16,18,20,22 * * *" # Se ejecuta cada 2 horas (minuto 10)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-prelaunches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generar y ejecutar el cerebro de Matching (Node.js)
+        run: |
+          cat << 'EOF' > fetch_prelaunches.js
+          const fs = require('fs');
+
+          async function run() {
+            try {
+              console.log("Obteniendo proximos lanzamientos de Launch Library 2...");
+              const ll2Res = await fetch("https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20");
+              if (!ll2Res.ok) throw new Error("Error en LL2");
+              const ll2Data = await ll2Res.json();
+              const launches = ll2Data.results || [];
+
+              console.log("Obteniendo indice de CelesTrak...");
+              const celRes = await fetch("https://celestrak.org/NORAD/elements/supplemental/index.php?FORMAT=json");
+              if (!celRes.ok) throw new Error("Error en CelesTrak");
+              const celData = await celRes.json();
+
+              // Esta funcion es la que hace la magia de emparejar los nombres distintos
+              const normalize = (str) => {
+                if (!str) return "";
+                return str.toLowerCase()
+                          .replace(/pre-launch|prelaunch/g, '') // Quita la palabra prelaunch
+                          .replace(/group/g, 'g')               // Cambia "group" por "g"
+                          .replace(/[^a-z0-9]/g, '');           // Quita guiones, espacios y simbolos
+              };
+
+              let matchedPrelaunches = [];
+
+              for (const launch of launches) {
+                const nameLL2 = normalize(launch.name);
+                
+                const match = celData.find(dataset => {
+                    const nameCel = normalize(dataset.NAME);
+                    return nameCel.includes(nameLL2) || nameLL2.includes(nameCel);
+                });
+
+                if (match) {
+                    console.log(`¡Coincidencia encontrada!: ${launch.name} <-> ${match.NAME}`);
+                    const fileId = match.FILE;
+                    const prelaunchRes = await fetch(`https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=${fileId}&FORMAT=JSON`);
+                    
+                    if (prelaunchRes.ok) {
+                      const prelaunchData = await prelaunchRes.json();
+                      
+                      // Filtro básico para intentar quedarnos con el satélite individual (SINGLE) 
+                      // y descartar la pila entera (STACK), si es posible.
+                      const filteredData = prelaunchData.filter(d => 
+                         d.OBJECT_NAME.includes('SINGLE') || 
+                         (!d.OBJECT_NAME.includes('STACK') && !d.OBJECT_NAME.includes('DEPLOY'))
+                      );
+                      const finalData = filteredData.length > 0 ? filteredData : prelaunchData;
+                      
+                      matchedPrelaunches.push({
+                          launch_id: launch.id,
+                          launch_name: launch.name,
+                          net: launch.net,
+                          celestrak_file: fileId,
+                          data: finalData
+                      });
+                    }
+                }
+              }
+              
+              // Guarda todo ordenado en la carpeta launches
+              fs.mkdirSync('launches', { recursive: true });
+              fs.writeFileSync('launches/prelaunches.json', JSON.stringify(matchedPrelaunches, null, 2));
+              console.log("¡Archivo launches/prelaunches.json generado con exito!");
+            } catch (err) {
+              console.error("Error:", err);
+              process.exit(1);
+            }
+          }
+          run();
+          EOF
+          node fetch_prelaunches.js
+
+      - name: Commit cambios
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add launches/prelaunches.json
+          git commit -m "update pre-launches data" || echo "sin cambios"
+          git push
