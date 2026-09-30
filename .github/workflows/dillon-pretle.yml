@@ -1,13 +1,15 @@
-name: Test Dillon PreTLE
+name: Update Dillon PreTLE
 
 on:
+  schedule:
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  test-dillon:
+  update-dillon:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +27,7 @@ jobs:
           npm install playwright
           npx playwright install --with-deps chromium
 
-      - name: Read Dillon
+      - name: Get Dillon PreTLE
         run: |
           node <<'EOF'
           const { chromium } = require('playwright');
@@ -47,27 +49,158 @@ jobs:
 
             const text = await page.locator('body').innerText();
 
+            await browser.close();
+
+            const lines = text
+              .split('\n')
+              .map(line => line.trim())
+              .filter(Boolean);
+
+            const missions = [];
+
+            let currentMission = null;
+            let currentLaunch = null;
+
+            for (let i = 0; i < lines.length; i++) {
+
+              const line = lines[i];
+
+              /*
+               * Dillon devuelve:
+               *
+               * Crew-13
+               * NET: Oct 01 2026 15:10:06 UTC
+               */
+
+              if (line === 'NET:' || line.startsWith('NET:')) {
+
+                if (line.startsWith('NET:')) {
+                  currentLaunch = line
+                    .replace(/^NET:\s*/i, '')
+                    .trim();
+                } else {
+                  const nextLine = lines[i + 1];
+
+                  if (nextLine && /^NET:\s*/i.test(nextLine)) {
+                    currentLaunch = nextLine
+                      .replace(/^NET:\s*/i, '')
+                      .trim();
+
+                    i++;
+                  }
+                }
+
+                continue;
+              }
+
+              /*
+               * Detectamos la línea que contiene
+               * el nombre de la misión antes de NET.
+               */
+
+              if (
+                i + 1 < lines.length &&
+                /^NET:\s*/i.test(lines[i + 1])
+              ) {
+                currentMission = line.trim();
+
+                currentLaunch = lines[i + 1]
+                  .replace(/^NET:\s*/i, '')
+                  .trim();
+
+                i++;
+
+                continue;
+              }
+
+              /*
+               * Detectamos TLE line 1.
+               */
+
+              if (/^1\s+\d{5}[A-Z]\s+/.test(line)) {
+
+                const tle1 = line;
+                const tle2 = lines[i + 1];
+
+                if (tle2 && /^2\s+\d{5}\s+/.test(tle2)) {
+
+                  /*
+                   * El nombre está justo antes del TLE.
+                   *
+                   * Ejemplo:
+                   *
+                   * Crew-13 011510.06
+                   */
+
+                  let name = lines[i - 1] || '';
+
+                  /*
+                   * Elimina la hora compacta.
+                   */
+
+                  name = name
+                    .replace(/\s+\d{6}\.\d{2}$/, '')
+                    .trim();
+
+                  /*
+                   * Evitamos tomar textos como CSV
+                   * como nombre.
+                   */
+
+                  if (
+                    !name ||
+                    name === 'CSV' ||
+                    /^NET:/i.test(name)
+                  ) {
+                    name = currentMission || 'Unknown';
+                  }
+
+                  missions.push({
+                    mission: currentMission,
+                    launch: currentLaunch,
+                    name: name,
+                    tle1: tle1,
+                    tle2: tle2
+                  });
+
+                  i++;
+                }
+              }
+            }
+
+            fs.mkdirSync('launches', {
+              recursive: true
+            });
+
+            const output = {
+              source: 'Dillon Space Page',
+              sourceUrl: 'https://dillonsspacepage.com/pretle',
+              updatedAt: new Date().toISOString(),
+              missions
+            };
+
             fs.writeFileSync(
-              'dillon-debug.txt',
-              text
+              'launches/dillon-pretle.json',
+              JSON.stringify(output, null, 2) + '\n'
             );
 
-            console.log(text);
-
-            await browser.close();
+            console.log(`Saved ${missions.length} TLE entries.`);
           })().catch(error => {
             console.error(error);
             process.exit(1);
           });
           EOF
 
-      - name: Save debug file
+      - name: Save file to GitHub
         run: |
-          git add -f dillon-debug.txt
+          git add -f launches/dillon-pretle.json
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "Debug Dillon PreTLE"
-          git push
-
+            git commit -m "Update Dillon PreTLE"
+            git push
+          fi
