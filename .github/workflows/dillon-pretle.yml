@@ -1,15 +1,13 @@
-name: Update Dillon PreTLE
+name: Test Dillon PreTLE
 
 on:
-  schedule:
-    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-dillon:
+  test-dillon:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +25,7 @@ jobs:
           npm install playwright
           npx playwright install --with-deps chromium
 
-      - name: Get Dillon PreTLE
+      - name: Read Dillon
         run: |
           node <<'EOF'
           const { chromium } = require('playwright');
@@ -45,134 +43,31 @@ jobs:
               timeout: 60000
             });
 
-            await page.waitForFunction(() => {
-              const text = document.body.innerText || '';
-
-              return (
-                text.includes('UPCOMING MISSIONS') &&
-                text.includes('NET:') &&
-                /(?:^|\n)1\s+\d{5}[A-Z]\s+/m.test(text) &&
-                /(?:^|\n)2\s+\d{5}\s+/m.test(text)
-              );
-            }, {
-              timeout: 60000
-            });
-
-            await page.waitForTimeout(3000);
+            await page.waitForTimeout(5000);
 
             const text = await page.locator('body').innerText();
 
-            await browser.close();
-
-            const lines = text
-              .split('\n')
-              .map(x => x.trim())
-              .filter(Boolean);
-
-            const missions = [];
-
-            let currentMission = null;
-            let currentLaunch = null;
-
-            for (let i = 0; i < lines.length; i++) {
-              const line = lines[i];
-
-              /*
-               * Ejemplo real de Dillon:
-               *
-               * Crew-13NET: Oct 01 2026 15:10:06 UTC
-               */
-              const netMatch = line.match(
-                /^(.+?)NET:\s*(.+?)\s+UTC$/i
-              );
-
-              if (netMatch) {
-                currentMission = netMatch[1].trim();
-                currentLaunch = netMatch[2].trim() + ' UTC';
-                continue;
-              }
-
-              /*
-               * TLE 1
-               */
-              if (/^1\s+\d{5}[A-Z]\s+/.test(line)) {
-
-                const tle1 = line;
-                const tle2 = lines[i + 1];
-
-                if (tle2 && /^2\s+\d{5}\s+/.test(tle2)) {
-
-                  /*
-                   * El nombre está en la línea anterior.
-                   *
-                   * Ejemplo:
-                   * Crew-13 011510.06
-                   */
-                  let name = lines[i - 1] || '';
-
-                  /*
-                   * Quita la hora compacta:
-                   * 011510.06
-                   */
-                  name = name
-                    .replace(/\s+\d{6}\.\d{2}$/, '')
-                    .trim();
-
-                  /*
-                   * Si por alguna razón el nombre no se pudo
-                   * obtener, usamos la misión como respaldo.
-                   */
-                  if (!name) {
-                    name = currentMission || 'Unknown';
-                  }
-
-                  missions.push({
-                    mission: currentMission,
-                    launch: currentLaunch,
-                    name: name,
-                    tle1: tle1,
-                    tle2: tle2
-                  });
-
-                  i++;
-                }
-              }
-            }
-
-            fs.mkdirSync('launches', {
-              recursive: true
-            });
-
-            const output = {
-              source: 'Dillon Space Page',
-              sourceUrl: 'https://dillonsspacepage.com/pretle',
-              updatedAt: new Date().toISOString(),
-              missions
-            };
-
             fs.writeFileSync(
-              'launches/dillon-pretle.json',
-              JSON.stringify(output, null, 2) + '\n'
+              'dillon-debug.txt',
+              text
             );
 
-            console.log(`Saved ${missions.length} TLE entries.`);
+            console.log(text);
+
+            await browser.close();
           })().catch(error => {
             console.error(error);
             process.exit(1);
           });
           EOF
 
-      - name: Save file to GitHub
+      - name: Save debug file
         run: |
-          git add -f launches/dillon-pretle.json
+          git add -f dillon-debug.txt
 
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            git commit -m "Update Dillon PreTLE"
-            git push
-          fi
+          git commit -m "Debug Dillon PreTLE"
+          git push
 
