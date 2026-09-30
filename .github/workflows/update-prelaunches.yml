@@ -27,8 +27,7 @@ jobs:
 
           async function run() {
             try {
-              console.log("Leyendo proximos lanzamientos desde el archivo local (next-launches.json)...");
-              // Leemos el archivo que YA descargó tu otro Action
+              console.log("Leyendo proximos lanzamientos desde el archivo local...");
               const ll2DataRaw = fs.readFileSync('launches/next-launches.json', 'utf-8');
               const ll2Data = JSON.parse(ll2DataRaw);
               const launches = ll2Data.results || [];
@@ -38,56 +37,67 @@ jobs:
               if (!celRes.ok) throw new Error("Error en CelesTrak");
               const celData = await celRes.json();
 
-              // Esta funcion es la que hace la magia de emparejar los nombres distintos
               const normalize = (str) => {
                 if (!str) return "";
                 return str.toLowerCase()
-                          .replace(/pre-launch|prelaunch/g, '') // Quita la palabra prelaunch
-                          .replace(/group/g, 'g')               // Cambia "group" por "g"
-                          .replace(/[^a-z0-9]/g, '');           // Quita guiones, espacios y simbolos
+                          .replace(/pre-launch|prelaunch/g, '')
+                          .replace(/group/g, 'g')
+                          .replace(/[^a-z0-9]/g, '');
               };
 
-              let matchedPrelaunches = [];
+              // 1. Agarramos TODOS los que dicen "Pre-Launch" en el indice de CelesTrak
+              const preLaunchDatasets = celData.filter(dataset => 
+                  dataset.NAME && dataset.NAME.toLowerCase().includes('pre-launch')
+              );
 
-              for (const launch of launches) {
-                const nameLL2 = normalize(launch.name);
+              let finalPrelaunches = [];
+
+              // 2. Procesamos cada uno de los Pre-Launch de CelesTrak
+              for (const dataset of preLaunchDatasets) {
+                const nameCelNorm = normalize(dataset.NAME);
                 
-                const match = celData.find(dataset => {
-                    const nameCel = normalize(dataset.NAME);
-                    return nameCel.includes(nameLL2) || nameLL2.includes(nameCel);
+                // Tratamos de buscar coincidencia en Launch Library 2
+                const matchedLL2 = launches.find(launch => {
+                    const nameLL2Norm = normalize(launch.name);
+                    return nameCelNorm.includes(nameLL2Norm) || nameLL2Norm.includes(nameCelNorm);
                 });
 
-                if (match) {
-                    console.log(`¡Coincidencia encontrada!: ${launch.name} <-> ${match.NAME}`);
-                    const fileId = match.FILE;
-                    const prelaunchRes = await fetch(`https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=${fileId}&FORMAT=JSON`);
-                    
-                    if (prelaunchRes.ok) {
-                      const prelaunchData = await prelaunchRes.json();
-                      
-                      // Filtro básico para intentar quedarnos con el satélite individual (SINGLE) 
-                      // y descartar la pila entera (STACK), si es posible.
-                      const filteredData = prelaunchData.filter(d => 
-                         d.OBJECT_NAME.includes('SINGLE') || 
-                         (!d.OBJECT_NAME.includes('STACK') && !d.OBJECT_NAME.includes('DEPLOY'))
-                      );
-                      const finalData = filteredData.length > 0 ? filteredData : prelaunchData;
-                      
-                      matchedPrelaunches.push({
-                          launch_id: launch.id,
-                          launch_name: launch.name,
-                          net: launch.net,
-                          celestrak_file: fileId,
-                          data: finalData
-                      });
-                    }
+                // Limpiamos el titulo para usar en tu web (Le quita " Pre-Launch" del final)
+                const cleanName = dataset.NAME.replace(/ Pre-Launch/gi, '').trim();
+                const fileId = dataset.FILE;
+
+                console.log(`Procesando CelesTrak Pre-Launch: ${cleanName} | Sincronizado con LL2: ${!!matchedLL2}`);
+
+                // Descargamos los datos orbitales puros de este Pre-Launch
+                const prelaunchRes = await fetch(`https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=${fileId}&FORMAT=JSON`);
+                
+                if (prelaunchRes.ok) {
+                  const prelaunchData = await prelaunchRes.json();
+                  
+                  // Filtro básico para quedarnos con el SINGLE y descartar la basura (STACK)
+                  const filteredData = prelaunchData.filter(d => 
+                     d.OBJECT_NAME.includes('SINGLE') || 
+                     (!d.OBJECT_NAME.includes('STACK') && !d.OBJECT_NAME.includes('DEPLOY'))
+                  );
+                  const finalData = filteredData.length > 0 ? filteredData : prelaunchData;
+                  
+                  // Guardamos todo en el JSON final
+                  finalPrelaunches.push({
+                      celestrak_name: cleanName,           // Ej: "Transporter-18"
+                      celestrak_file: fileId,              // Ej: "transporter-18"
+                      is_matched_with_ll2: !!matchedLL2,   // true o false
+                      launch_id: matchedLL2 ? matchedLL2.id : null,
+                      launch_name_ll2: matchedLL2 ? matchedLL2.name : null,
+                      net: matchedLL2 ? matchedLL2.net : null,
+                      data: finalData                      // Los datos orbitales JSON
+                  });
                 }
               }
               
-              // Guarda todo ordenado en la carpeta launches
+              // Guarda el archivo
               fs.mkdirSync('launches', { recursive: true });
-              fs.writeFileSync('launches/prelaunches.json', JSON.stringify(matchedPrelaunches, null, 2));
-              console.log("¡Archivo launches/prelaunches.json generado con exito!");
+              fs.writeFileSync('launches/prelaunches.json', JSON.stringify(finalPrelaunches, null, 2));
+              console.log(`¡Exito! Se recopilaron ${finalPrelaunches.length} Pre-Launches en total.`);
             } catch (err) {
               console.error("Error:", err);
               process.exit(1);
@@ -102,5 +112,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add launches/prelaunches.json
+          git commit -m "update pre-launches data" || echo "sin cambios"
+          git push
           git commit -m "update pre-launches data" || echo "sin cambios"
           git push
