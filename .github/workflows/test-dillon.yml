@@ -1,17 +1,19 @@
-name: Test Dillon PreTLE
+name: Update Dillon PreTLE
 
 on:
+  schedule:
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 jobs:
-  test:
+  update-dillon-pretle:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,47 +24,69 @@ jobs:
           npm install playwright
           npx playwright install --with-deps chromium
 
-      - name: Read Dillon page
+      - name: Read Dillon PreTLE
         run: |
           node <<'EOF'
           const { chromium } = require('playwright');
+          const fs = require('fs');
 
           (async () => {
-            const browser = await chromium.launch({ headless: true });
+            const browser = await chromium.launch({
+              headless: true
+            });
 
             const page = await browser.newPage();
 
-            console.log('Abriendo Dillon...');
+            console.log('Opening Dillon PreTLE page...');
 
             await page.goto('https://dillonsspacepage.com/pretle', {
-              waitUntil: 'networkidle',
+              waitUntil: 'domcontentloaded',
               timeout: 60000
             });
 
-            console.log('Página cargada. Esperando 10 segundos...');
+            console.log('Waiting for Dillon data...');
 
-            await page.waitForTimeout(10000);
+            await page.waitForFunction(() => {
+              const text = document.body.innerText || '';
+              return (
+                text.includes('UPCOMING MISSIONS') &&
+                !text.includes('No Upcoming Missions')
+              );
+            }, {
+              timeout: 60000
+            });
+
+            console.log('Upcoming missions detected.');
+
+            await page.waitForTimeout(3000);
 
             const html = await page.content();
 
-            require('fs').writeFileSync(
+            fs.writeFileSync(
               'dillon-rendered.html',
-              html
+              html,
+              'utf8'
             );
 
-            console.log('HTML guardado.');
-            console.log('Tamaño:', html.length);
+            const text = await page.locator('body').innerText();
+
+            fs.writeFileSync(
+              'dillon-pretle.txt',
+              text,
+              'utf8'
+            );
+
+            console.log('Dillon data saved.');
+            console.log(text);
 
             await browser.close();
           })();
           EOF
 
-      - name: Show result
-        run: |
-          grep -i -E "Upcoming Missions|PreTLE|PRE-LAUNCH|TLE|TOTAL MISSIONS" dillon-rendered.html || true
-
-      - name: Upload result
+      - name: Upload Dillon data
         uses: actions/upload-artifact@v4
         with:
-          name: dillon-test
-          path: dillon-rendered.html
+          name: dillon-pretle
+          path: |
+            dillon-rendered.html
+            dillon-pretle.txt
