@@ -27,10 +27,10 @@ jobs:
 
           async function run() {
             try {
-              console.log("Obteniendo proximos lanzamientos de Launch Library 2...");
-              const ll2Res = await fetch("https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20");
-              if (!ll2Res.ok) throw new Error("Error en LL2");
-              const ll2Data = await ll2Res.json();
+              console.log("Leyendo proximos lanzamientos desde el archivo local (next-launches.json)...");
+              // Leemos el archivo que YA descargó tu otro Action
+              const ll2DataRaw = fs.readFileSync('launches/next-launches.json', 'utf-8');
+              const ll2Data = JSON.parse(ll2DataRaw);
               const launches = ll2Data.results || [];
 
               console.log("Obteniendo indice de CelesTrak...");
