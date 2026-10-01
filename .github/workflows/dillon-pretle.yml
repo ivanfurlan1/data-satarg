@@ -200,5 +200,8 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
             git commit -m "Update Dillon PreTLE"
+
+            git pull --rebase origin main
+
             git push
           fi
