@@ -23,6 +23,16 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+
           git add launches/*.json
-          git commit -m "update launch data" || echo "sin cambios"
+
+          if git diff --cached --quiet; then
+            echo "sin cambios"
+            exit 0
+          fi
+
+          git commit -m "update launch data"
+
+          git pull --rebase origin main
+
           git push
