@@ -1,2118 +1,2132 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-04T04:01:54.393Z",
+  "updatedAt": "2026-10-04T04:31:53.136Z",
   "missions": [
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
+      "name": "Tranche 1 Transport Layer A PO",
+      "tle1": "1 70211U 26230A   26278.35162037  .00000000  00000-0  00000-0 0  9996",
+      "tle2": "2 70211  81.0651 205.4708 0564016 158.1600 001.1000 15.04647600    08"
+    },
+    {
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
+      "name": "Tranche 1 Transport Layer A",
+      "tle1": "1 70211U 26230A   26278.38465278  .00000000  00000-0  00000-0 0  9992",
+      "tle2": "2 70211  81.0651 205.4677 0003413 338.2401 000.0000 13.85060346    03"
+    },
+    {
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-97 PO",
       "tle1": "1 70210U 26228A   26275.16857639  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70210  58.4982 331.7166 4544172 047.3418 000.0000 06.61840937    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-97",
       "tle1": "1 70210U 26228A   26275.24412037  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70210  58.4982 331.8547 0020122 047.1812 180.0000 03.78468412    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 18 PO",
       "tle1": "1 70209U 26227A   26274.77807870  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70209  97.6043 344.1774 0258027 142.2509 013.6000 15.74276824    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 18",
       "tle1": "1 70209U 26227A   26274.80769676  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70209  97.6043 344.1802 0013027 142.1957 181.4649 15.18215520    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Crew-13",
       "tle1": "1 70208U 26226A   26274.63811343  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70208  51.6406 133.3890 0027809 034.3000 013.6000 16.22852685    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 31-1 Sub-Orbital",
       "tle1": "1 70207U 26225A   26271.53969907  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70207  30.4992 338.8103 0244981 024.4976 107.8000 16.57752629    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 31-1",
       "tle1": "1 70207U 26225A   26271.55178241  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70207  30.4992 338.8397 0005215 024.5341 179.9122 15.99899300    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-385 PO",
       "tle1": "1 70206U 26224A   26269.58965278  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70206  70.0179 291.0691 0081884 163.4441 351.8927 16.26456410    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-385",
       "tle1": "1 70206U 26224A   26269.62171296  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70206  70.0179 291.0644 0006920 342.9268 000.0000 16.05014307    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owlright, Owlright, Owlright PO",
       "tle1": "1 70205U 26223A   26269.03339120  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70205  38.0298 286.7833 0283361 259.7492 023.1000 15.59732770    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owlright, Owlright, Owlright",
       "tle1": "1 70205U 26223A   26269.06137731  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70205  38.0298 286.9276 0020504 259.6210 180.2447 15.00313178    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Yaogan 40 Group 04 PO",
       "tle1": "1 70204U 26222A   26267.37625000  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70204  89.0285 070.1456 0453779 162.7195 000.2279 15.03246179    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Yaogan 40 Group 04 17",
       "tle1": "1 70204U 26222A   26267.40950231  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70204  89.0285 070.1454 0034365 342.9409 000.0000 13.99192793    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 26 PO",
       "tle1": "1 70203U 26221A   26266.57638889  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70203  49.9544 154.9104 0479584 149.4819 042.3000 15.04917717    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 26",
       "tle1": "1 70203U 26221A   26266.60192130  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70203  49.9544 154.8930 0048133 149.4528 180.6468 14.12094563    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "KZ-1 Unknown Payload",
       "tle1": "1 70202U 26220A   26263.17430556  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70202  94.6001 337.3679 0009119 053.1241 098.2000 15.36425435    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-27",
       "tle1": "1 70201U 26219A   26263.11753472  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70201  70.0064 101.1677 0010264 276.6779 097.9868 16.05912239    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CZ-2D Unknown Payload",
       "tle1": "1 70200U 26218A   26262.45625000  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70200  95.1679 089.3720 0011119 214.7358 298.1185 15.16413761    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owl By The Dozen PO",
       "tle1": "1 70199U 26217A   26262.14658565  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70199  38.0298 320.7453 0283361 259.7492 023.1000 15.59732770    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owl By The Dozen",
       "tle1": "1 70199U 26217A   26262.17457176  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70199  38.0298 320.8896 0020504 259.6210 180.2447 15.00313178    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CentiSpace-1 Group 06",
       "tle1": "1 70198U 26215A   26260.11666667  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70198  55.1427 354.2709 0008861 253.0303 264.9965 14.15911922    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-259 PO",
       "tle1": "1 70197U 26214A   26260.05307870  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70197  80.0035 080.7656 0091027 156.2710 000.8000 16.22302114    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-259",
       "tle1": "1 70197U 26214A   26260.08383102  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70197  80.0035 080.7644 0015056 156.2704 180.4336 16.04016431    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 25 PO",
       "tle1": "1 70196U 26213A   26260.02847222  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70196  50.0041 313.4383 0516347 163.9568 004.0000 15.10300475    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 25",
       "tle1": "1 70196U 26213A   26260.06093750  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70196  50.0041 313.4298 0012959 344.4573 000.0000 13.97708800    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Progress MS-35 PO",
       "tle1": "1 70195U 26212A   26259.57143519  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70195  51.6465 208.7904 0095432 057.5310 021.6000 16.05351678    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Progress MS-35",
       "tle1": "1 70195U 26212A   26259.59883102  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70195  51.6465 208.7904 0012410 057.5159 179.8929 15.85603630    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Gravity-1 Unknown Payload",
       "tle1": "1 70194U 26211A   26258.92083333  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70194  88.2194 270.1897 0022298 124.8112 035.9000 14.28361889    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ZQ-2E Unknown Payload PO",
       "tle1": "1 70193U 26210A   26258.27384259  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70193  89.1763 012.9027 0508980 152.0374 000.0000 15.00066901    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ZQ-2E Unknown Payload",
       "tle1": "1 70193U 26210A   26258.30716435  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70193  89.1763 012.9023 0039173 152.0577 180.0000 14.00608189    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Sentinel-3C & FLEX PO",
       "tle1": "1 70192U 26209A   26258.06811343  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70192  98.6217 324.3701 0436671 030.4448 031.5890 15.13227985    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Sentinel-3C & FLEX Deploy 1",
       "tle1": "1 70192U 26209A   26258.09519676  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70192  98.6217 324.3793 0015984 030.5406 179.1287 14.22662196    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Sentinel-3C & FLEX Deploy 2",
       "tle1": "1 70192U 26209A   26258.13620370  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70192  98.6173 324.3392 0038427 060.8663 000.0000 14.22671688    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "O3b mPower 11-13 PO",
       "tle1": "1 70191U 26208A   26256.78960648  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70191  28.7740 113.1123 0222365 082.7836 012.0000 15.90930961    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "O3b mPower 11-13",
       "tle1": "1 70191U 26208A   26256.80509259  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70191  16.7740 114.7811 3218680 181.1000 000.0000 08.82181124    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Happily Ever Faster PO",
       "tle1": "1 70190U 26207A   26254.15079861  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70190  38.0976 298.3368 0191763 280.0037 016.8000 15.83096518    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Happily Ever Faster",
       "tle1": "1 70190U 26207A   26254.17793981  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70190  38.0976 298.3368 0011425 280.3034 171.4514 15.41730169    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-153 PO",
       "tle1": "1 70189U 26206A   26253.66020833  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70189  70.0179 300.7683 0081884 163.4441 351.8927 16.26456410    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-153",
       "tle1": "1 70189U 26206A   26253.69226852  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70189  70.0179 300.7636 0006920 342.9268 000.0000 16.05014307    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Unknown Payload",
       "tle1": "1 70188U 26205A   26253.38125000  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70188  44.0213 110.5380 0028702 181.0784 298.1185 15.20789075    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-24",
       "tle1": "1 70187U 26204A   26249.64525463  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70187  70.0073 277.8640 0010408 275.8607 098.8619 16.05732627    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Onward and Upward PO",
       "tle1": "1 70186U 26203A   26248.84754630  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70186  97.2733 324.1495 0161705 075.7278 007.2000 15.80484156    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Onward and Upward",
       "tle1": "1 70186U 26203A   26248.87782407  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70186  97.2733 324.1371 0014442 255.3220 000.0000 15.40644513    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "GISAT-1A",
       "tle1": "1 70185U 26202A   26246.90416667  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70185  21.4507 245.2424 7278140 176.2523 000.0000 02.31791200    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owl Around The World PO",
       "tle1": "1 70184U 26201A   26245.50700231  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70184  38.0298 074.0945 0283361 259.7492 023.1000 15.59732770    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Owl Around The World",
       "tle1": "1 70184U 26201A   26245.53498843  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70184  38.0298 074.2388 0020504 259.6210 180.2447 15.00313178    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-23",
       "tle1": "1 70183U 26200A   26245.40578704  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70183  70.0081 187.5107 0010256 275.6620 098.4982 16.05884475    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Nancy Grace Roman Space Telescope PO",
       "tle1": "1 70182U 26199A   26242.48231481  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70182  34.5607 018.4948 0023492 068.3500 002.4000 16.24391070    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Nancy Grace Roman Space Telescope",
       "tle1": "1 70182U 26199A   26242.49486111  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70182  34.5607 018.4877 9913053 139.3461 000.0029 00.01319497    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "MTG-I2",
       "tle1": "1 70181U 26198A   26239.85611111  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70181   6.2230 101.0663 7288133 162.6528 001.1979 02.27657730    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-22",
       "tle1": "1 70180U 26197A   26238.44253472  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70180  70.0075 193.9006 0009321 263.7967 110.0694 16.05904003    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-49",
       "tle1": "1 70179U 26196A   26237.43893519  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70179  53.1611 014.0256 0009496 269.7982 342.9763 16.09536648    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "7 satellites",
       "tle1": "1 70178U 26195A   26237.14513889  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70178  98.0099 309.7597 0021015 217.8620 298.1185 14.37068767    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Glonass-K1 No. 19",
       "tle1": "1 70177U 26194A   26237.11858796  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70177  64.7717 312.3635 0000928 296.5260 063.5327 02.12881453    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-20",
       "tle1": "1 70176U 26193A   26234.35244213  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70176  70.0075 157.3750 0009415 261.2853 113.3213 16.05752524    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-39",
       "tle1": "1 70175U 26192A   26233.67768519  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70175  53.1607 095.6255 0008168 280.9117 344.3909 16.09461136    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Lightning God Defends PO",
       "tle1": "1 70174U 26191A   26232.55125000  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70174  42.0304 099.9030 0296279 242.4400 023.1000 15.62672872    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Lightning God Defends",
       "tle1": "1 70174U 26191A   26232.57879630  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70174  42.0304 099.9458 0011762 242.5078 178.0678 14.98384843    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-50",
       "tle1": "1 70173U 26190A   26231.21012731  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70173  97.2910 083.6848 0009899 266.8020 106.5970 16.03811562    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Honghu-03 PO",
       "tle1": "1 70172U 26189A   26230.98887731  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70172  55.0182 279.5302 0470525 132.1938 005.6000 15.23035812    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Honghu-03",
       "tle1": "1 70172U 26189A   26231.02086806  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70172  55.0182 279.5032 0020881 132.1357 181.0443 14.25989385    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Satellite for Earth Observation (SEO)",
       "tle1": "1 70171U 26188A   26229.13194444  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70171  97.3097 298.1423 0007543 146.5659 004.0000 15.38272806    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 24 PO",
       "tle1": "1 70170U 26187A   26228.17986111  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70170  50.0041 336.5468 0516347 163.9568 004.0000 15.10300475    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 24",
       "tle1": "1 70170U 26187A   26228.21232639  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70170  50.0041 336.5383 0012959 344.4573 000.0000 13.97708800    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-366 PO",
       "tle1": "1 70169U 26186A   26228.08260417  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70169  70.0179 067.6204 0081884 163.4441 351.8927 16.26456410    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-366",
       "tle1": "1 70169U 26186A   26228.11466435  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70169  70.0179 067.6157 0006920 342.9268 000.0000 16.05014307    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Globalstar 2-R Mission 1 PO",
       "tle1": "1 70168U 26185A   26228.05594907  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70168  52.0019 238.0134 0387556 050.1379 000.8000 15.44383598    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Globalstar 2-R Mission 1",
       "tle1": "1 70168U 26185A   26228.08649306  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70168  52.0019 238.0341 0010579 118.3058 103.0000 14.61079710    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-49",
       "tle1": "1 70167U 26184A   26224.24193287  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70167  97.2908 088.2370 0010812 276.2334 097.6747 16.03822972    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-19",
       "tle1": "1 70166U 26183A   26223.70826389  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70166  53.1610 096.7001 0009545 269.9490 355.3065 16.08750844    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Michibiki 7 PO",
       "tle1": "1 70165U 26182A   26222.81722222  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70165  29.2350 294.2775 0156007 290.0000 191.0000 15.71895600    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Michibiki 7",
       "tle1": "1 70165U 26182A   26222.82828704  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70165  21.8890 294.2324 7209061 175.3570 000.7932 02.30375200    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ChinaSat 4B PO",
       "tle1": "1 70164U 26999A   26222.50833333  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70164  19.5076 161.0416 0119451 225.6785 241.9000 16.30316325    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ChinaSat 4B PLANNED",
       "tle1": "1 70164U 26999A   26222.52083333  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70164  19.5076 161.0416 7246189 178.1649 000.2000 02.38782184    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-38",
       "tle1": "1 70163U 26181A   26220.73406250  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70163  97.2911 261.9254 0010764 276.9900 097.2954 16.03602120    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Grain Goddess Provides PO",
       "tle1": "1 70162U 26180A   26218.39378472  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70162  42.0304 029.2612 0296279 242.4400 023.1000 15.62672872    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Grain Goddess Provides",
       "tle1": "1 70162U 26180A   26218.42133102  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70162  42.0304 029.3040 0011762 242.5078 178.0678 14.98384843    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 11-13 PO",
       "tle1": "1 70161U 26179A   26217.33195602  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70161  53.0000 327.7928 0298300 047.5000 002.6400 15.72912712    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 11-13",
       "tle1": "1 70161U 26179A   26217.35805556  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70161  53.0100 327.5551 0004700 274.6900 284.9500 15.11840682    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SD-3 OSE HS-01 & 02",
       "tle1": "1 70160U 26178A   26217.11458333  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70160  97.7051 292.9585 0036356 218.7655 298.1185 15.22530264    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-53",
       "tle1": "1 70159U 26177A   26216.75453704  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70159  97.2918 265.4232 0010664 274.9443 098.5343 16.03730773    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 23 PO",
       "tle1": "1 70158U 26176A   26216.38194444  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70158  49.9544 035.4363 0479584 149.4819 042.3000 15.04917717    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 23",
       "tle1": "1 70158U 26176A   26216.40747685  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70158  49.9544 035.4189 0048133 149.4528 180.6468 14.12094563    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-52",
       "tle1": "1 70157U 26175A   26213.17385417  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70157  97.2908 052.8140 0011956 284.6019 089.4817 16.03587487    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-95 PO",
       "tle1": "1 70156U 26174A   26211.30460648  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70156  58.7621 320.3979 0757624 050.5168 353.5871 14.60539342    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-95",
       "tle1": "1 70156U 26174A   26211.32875000  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70156  63.4621 320.2235 0161142 170.2346 007.7355 13.40764427    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-27A & B",
       "tle1": "1 70155U 26173A   26211.04930556  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70155  68.4229 274.1619 0578459 157.0711 002.4000 14.81938368    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianlian 3-01 PO",
       "tle1": "1 70154U 26172A   26210.50069444  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70154  19.4734 146.0985 0081710 220.4144 251.4000 16.39666486    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianlian 3-01",
       "tle1": "1 70154U 26172A   26210.51233796  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70154  19.4734 146.0985 7238377 179.9980 000.0000 02.40206909    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-51",
       "tle1": "1 70153U 26171A   26206.70381944  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70153  97.2904 237.2343 0010699 275.7088 098.1799 16.03659129    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starship Flight 13",
       "tle1": "1 70152U 26999A   26205.95769676  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70152  26.5425 076.7118 0147529 359.6837 122.1679 16.65095506    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "LJ-1 5 satellites",
       "tle1": "1 70151U 26170A   26204.99097222  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70151  97.7021 212.0764 0014098 278.3033 255.2164 15.09188774    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianlian 2-06 PO",
       "tle1": "1 70150U 26169A   26204.50694444  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70150  28.0680 122.7942 0223281 194.8871 285.0000 16.00984975    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianlian 2-06",
       "tle1": "1 70150U 26169A   26204.51734954  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70150  28.0680 122.7941 7328142 179.2138 000.0000 02.28448474    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Gravity-1 9 satellites",
       "tle1": "1 70149U 26168A   26203.12569444  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70149  97.0590 284.9563 0007531 103.8602 056.7000 15.12686828    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "MRV-MEP PO",
       "tle1": "1 70148U 26167A   26202.89037037  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70148  28.7069 097.2167 0174604 082.1176 013.6000 16.03697303    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "MRV-MEP",
       "tle1": "1 70148U 26167A   26202.90461806  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70148  25.7069 097.2200 7420807 179.9695 000.0000 02.09406565    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-39",
       "tle1": "1 70147U 26166A   26202.66048611  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70147  97.2910 217.6581 0011560 283.6404 090.0023 16.03487190    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Rassvet-3",
       "tle1": "1 70146U 26165A   26200.75000000  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70146  82.2988 232.0593 0026921 079.2114 000.0000 15.87895252    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Aagaman (Demo Flight)",
       "tle1": "1 70145U 26164A   26199.28020833  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70145  60.0070 305.3094 0013472 144.3612 035.9000 15.38003566    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tranche 1 Transport Layer E PO",
       "tle1": "1 70144U 26163A   26197.86245370  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70144  81.0651 310.0369 0564016 158.1600 001.1000 15.04647600    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tranche 1 Transport Layer E",
       "tle1": "1 70144U 26163A   26197.89548611  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70144  81.0651 310.0338 0003413 338.2401 000.0000 13.85060346    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Soyuz MS-29 PO",
       "tle1": "1 70143U 26162A   26195.62237269  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70143  51.6107 164.2544 0110852 077.7048 004.0000 16.03650857    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Soyuz MS-29",
       "tle1": "1 70143U 26162A   26195.65285880  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70143  51.6107 164.3114 0014911 077.6669 179.9950 15.80879838    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-45",
       "tle1": "1 70142U 26161A   26195.42475694  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70142  53.1611 326.6786 0007211 291.2934 333.8950 16.09057202    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 15-14",
       "tle1": "1 70141U 26160A   26195.10440972  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70141  70.0064 029.4573 0010513 276.7621 097.1581 16.05878093    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-48",
       "tle1": "1 70140U 26159A   26192.16912037  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70140  97.2911 030.3965 0010709 276.2502 097.6192 16.03710697    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Demo Flight PO",
       "tle1": "1 70139U 26158A   26191.18333333  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70139  50.0009 301.4486 0538575 160.6321 005.6000 15.03307831    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Demo Flight",
       "tle1": "1 70139U 26158A   26191.21553241  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70139  50.0009 301.4374 0012124 160.6567 179.9154 13.92080746    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-42",
       "tle1": "1 70138U 26157A   26190.43564815  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70138  53.1616 325.7540 0008527 276.7577 349.0701 16.09034482    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 17 PO",
       "tle1": "1 70137U 26156A   26188.30585648  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70137  96.7521 089.4398 0335211 156.6453 000.1919 15.62776931    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 17 Deploy 1",
       "tle1": "1 70137U 26156A   26188.33545139  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70137  96.7521 089.4427 0005274 144.5105 179.6927 14.90367028    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 17 Deploy 2",
       "tle1": "1 70137U 26156A   26188.40150463  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70137  99.0021 088.8777 0007081 134.2231 180.5250 13.98724163    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 14 PO",
       "tle1": "1 70136U 26155A   26186.58402778  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70136  89.1519 062.9709 0495551 166.7268 023.1000 14.98199817    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 14",
       "tle1": "1 70136U 26155A   26186.61332176  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70136  89.1519 062.9708 0026716 166.6354 181.1533 13.98942755    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-50",
       "tle1": "1 70135U 26154A   26186.49418981  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70135  53.1609 342.9172 0009715 270.5011 355.4296 16.08407686    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 13 PO",
       "tle1": "1 70134U 26153A   26185.40680556  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70134  89.0285 000.3526 0453779 162.7195 000.2279 15.03246179    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 13",
       "tle1": "1 70134U 26153A   26185.44005787  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70134  89.0285 000.3524 0034365 342.9409 000.0000 13.99192793    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Swift Boost Mission",
       "tle1": "1 70133U 26152A   26184.36370370  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70133  20.6598 058.0075 0021394 139.6654 035.9000 15.65797721    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LA-08)",
       "tle1": "1 70132U 26151A   26183.20030093  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70132  51.8831 243.2613 0007756 297.3951 146.3496 15.39073716    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-46",
       "tle1": "1 70131U 26150A   26183.16652778  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70131  97.2903 020.6302 0012242 286.7246 086.7814 16.03585042    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Haiyang 2E",
       "tle1": "1 70130U 26149A   26182.99652778  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70130  97.5299 190.9839 0014900 214.3439 298.1185 14.88312088    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Sirius SXM-11 PO",
       "tle1": "1 70129U 26148A   26180.10629630  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70129  28.2774 144.7130 0077652 086.0069 015.2000 16.24989394    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Sirius SXM-11",
       "tle1": "1 70129U 26148A   26180.11905093  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70129  26.4774 144.9478 5939858 176.4514 000.0000 04.20588884    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-40",
       "tle1": "1 70128U 26147A   26179.71593750  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70128  97.2901 214.9770 0010930 275.6583 098.5051 16.03625037    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Ten Owl Of Ten PO",
       "tle1": "1 70127U 26146A   26177.74447917  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70127  42.0049 115.3440 0287924 240.9712 024.7000 15.65538582    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Ten Owl Of Ten",
       "tle1": "1 70127U 26146A   26177.77128472  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70127  42.0049 115.3803 0013473 241.1608 175.7789 15.03312579    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-45",
       "tle1": "1 70126U 26145A   26176.18898148  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70126  97.2906 021.8287 0010643 273.2799 100.2355 16.03621356    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Project Starfall Demonstration Mission PO",
       "tle1": "1 70125U 26999A   26174.45916667  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70125  40.3330 215.8632 0873241 142.6009 000.8000 14.29598468    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Project Starfall Demonstration Mission",
       "tle1": "1 70125U 26999A   26174.49759259  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70125  52.0074 210.0674 0016956 342.3254 000.0000 12.64695129    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-26A PO",
       "tle1": "1 70124U 26144A   26174.09791667  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70124  19.4734 325.2182 0081710 220.4144 251.4000 16.39666486    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-26A",
       "tle1": "1 70124U 26144A   26174.10956019  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70124  19.4734 325.2182 7238377 179.9980 000.0000 02.40206909    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-28",
       "tle1": "1 70123U 26143A   26172.73598380  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70123  97.2914 215.6080 0012796 288.3319 081.3539 16.03450251    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "VICTUS HAZE PUMA PO",
       "tle1": "1 70122U 26142A   26170.43615741  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70122  97.4047 067.3868 0233595 211.1938 023.1000 15.78741665    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "VICTUS HAZE PUMA",
       "tle1": "1 70122U 26142A   26170.46542824  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70122  97.4047 067.3838 0010966 155.2676 245.1000 15.26505007    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-179 PO",
       "tle1": "1 70121U 26141A   26170.37429398  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70121  70.0178 115.8331 0129262 154.1674 001.5179 16.16683023    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-179",
       "tle1": "1 70121U 26141A   26170.40521991  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70121  70.0269 115.7260 0011999 071.4223 264.2000 15.83907400    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LE-03) PO",
       "tle1": "1 70120U 26140A   26168.52953704  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70120  51.8806 035.9992 0221530 079.5561 345.6000 15.90210430    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LE-03)",
       "tle1": "1 70120U 26140A   26168.56312500  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70120  51.8806 036.0717 0008795 079.5973 177.8829 15.40825466    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 #3-5 PO",
       "tle1": "1 70119U 26139A   26168.28334491  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70119  53.0000 261.9482 0298300 047.5000 002.6400 15.72912712    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 #3-5",
       "tle1": "1 70119U 26139A   26168.30944444  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70119  53.0100 261.7105 0004700 274.6900 284.9500 15.11840682    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CentiSpace-1 Group 05",
       "tle1": "1 70118U 26138A   26168.17864583  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70118  55.0727 282.2204 0008788 100.1257 091.6744 13.98437281    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 22 PO",
       "tle1": "1 70117U 26137A   26168.12013889  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70117  50.0041 255.8491 0516347 163.9568 004.0000 15.10300475    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 22",
       "tle1": "1 70117U 26137A   26168.15260417  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70117  50.0041 255.8406 0012959 344.4573 000.0000 13.97708800    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Shijian 31",
       "tle1": "1 70116U 26136A   26167.41666667  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70116  53.1206 359.0212 6040304 165.8973 000.0000 04.08878736    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-54",
       "tle1": "1 70115U 26135A   26166.69189815  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70115  97.2903 193.4556 0011842 284.2459 090.3512 16.03703482    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "8 x Jilin-1",
       "tle1": "1 70114U 26134A   26166.16334491  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70114  97.6628 236.1871 0002756 041.4639 124.0444 15.07044704    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-54",
       "tle1": "1 70113U 26133A   26163.56851852  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70113  53.1611 347.1134 0007407 288.8757 337.0791 16.07956573    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "H3-30 Test Flight",
       "tle1": "1 70112U 26132A   26163.04807870  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70112  97.6888 227.8738 0017286 350.4654 181.2000 15.01079004    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-44",
       "tle1": "1 70111U 26131A   26162.67204861  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70111  97.2914 182.3432 0011529 282.7057 091.9171 16.03525657    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Curveball",
       "tle1": "1 70110U 26130A   26162.33958333  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70110  40.0054 191.1261 0003310 106.3053 018.4000 16.26489871    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-25 PO",
       "tle1": "1 70109U 26129A   26162.31944444  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70109  19.5076 033.7165 0119451 225.6785 241.9000 16.30316325    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-25",
       "tle1": "1 70109U 26129A   26162.33194444  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70109  19.5076 033.7165 7246189 178.1649 000.2000 02.38782184    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "x2 SatNet DTC test satellites",
       "tle1": "1 70108U 26128A   26160.35486111  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70108  55.1046 341.2443 0007271 137.5442 004.0000 15.22500373    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-35",
       "tle1": "1 70107U 26127A   26159.46910880  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70107  53.1635 307.2065 0007308 286.6343 339.4307 16.08044172    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-43",
       "tle1": "1 70106U 26126A   26158.22687500  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70106  97.2893 017.6507 0010862 274.2954 099.6086 15.83908677    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 12 PO",
       "tle1": "1 70105U 26125A   26156.28615741  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70105  89.0157 281.9851 0438279 164.4754 026.2317 15.22992248    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 12",
       "tle1": "1 70105U 26125A   26156.31420139  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70105  89.0157 281.9853 0021232 240.9880 103.3333 14.29184408    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 11 PO",
       "tle1": "1 70104U 26124A   26155.49638889  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70104  89.0285 003.1215 0370467 162.7195 000.2279 15.22967825    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 11",
       "tle1": "1 70104U 26124A   26155.52921296  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70104  89.0285 003.1217 0092015 116.4674 227.2279 14.55606941    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-43",
       "tle1": "1 70103U 26123A   26155.47780093  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70103  53.1628 306.5929 0007045 293.0472 332.3252 16.08434535    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-47",
       "tle1": "1 70102U 26122A   26154.69600694  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70102  97.2907 183.1573 0010408 273.0696 100.8625 16.03525642    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-41",
       "tle1": "1 70101U 26119A   26150.68520833  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70101  97.2910 175.3293 0010460 273.2052 100.4315 16.03416292    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LA-07)",
       "tle1": "1 70100U 26118A   26150.00776620  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70100  51.8831 141.2326 0007756 297.3951 146.3496 15.39073716    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-53",
       "tle1": "1 70099U 26117A   26149.58254630  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70099  53.1610 338.3216 0007708 283.0907 342.7035 16.08155692    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-24 PO",
       "tle1": "1 70098U 26116A   26146.68472222  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70098  19.5076 149.8062 0119451 225.6785 241.9000 16.30316325    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TJSW-24",
       "tle1": "1 70098U 26116A   26146.69722222  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70098  19.5076 149.8062 7246189 178.1649 000.2000 02.38782184    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-37",
       "tle1": "1 70097U 26115A   26146.66082176  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70097  97.2910 162.7622 0010531 274.0378 097.5767 16.03341802    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-47",
       "tle1": "1 70096U 26114A   26145.53444444  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70096  53.1603 317.1017 0007010 292.4864 332.9000 16.08251391    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Shenzhou 23",
       "tle1": "1 70095U 26113A   26144.63803241  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70095  41.4653 105.2860 0128832 093.8107 025.4266 16.03432488    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starship Flight 12",
       "tle1": "1 70094U 26999A   26142.94456019  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70094  26.9404 009.1252 0147529 000.9387 122.1000 16.65095506    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Viva La StriX PO",
       "tle1": "1 70093U 26112A   26142.40422454  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70093  44.8053 327.3453 0299079 232.3662 026.3000 15.64321837    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Viva La StriX",
       "tle1": "1 70093U 26112A   26142.43212963  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70093  44.8053 327.3788 0007709 232.1404 183.4678 14.98487105    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-31",
       "tle1": "1 70092U 26111A   26141.46250000  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70092  53.1611 287.2354 0007089 292.3721 333.5179 16.08202262    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-42",
       "tle1": "1 70091U 26110A   26140.15788194  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70091  97.2912 335.2900 0010562 275.1963 096.4912 16.03415062    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SMILE PO",
       "tle1": "1 70090U 26109A   26139.17689815  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70090  70.0092 242.4059 0244502 013.1174 064.7000 15.09421409    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SMILE",
       "tle1": "1 70090U 26109A   26139.19842593  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70090  70.0203 242.3644 0007001 062.9672 131.7000 14.57056741    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 09 PO",
       "tle1": "1 70089U 26108A   26137.62504630  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70089  89.0157 025.5919 0438279 164.4754 026.2317 15.22992248    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 09",
       "tle1": "1 70089U 26108A   26137.65309028  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70089  89.0157 025.5921 0021232 240.9880 103.3333 14.29184408    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CRS-34 PO",
       "tle1": "1 70088U 26107A   26135.92670139  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70088  51.6400 100.2213 0020846 051.9808 000.0000 16.22121518    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CRS-34",
       "tle1": "1 70088U 26107A   26136.14467593  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70088  51.6400 099.3695 0037014 051.9392 178.9865 15.91254892    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Five Payloads",
       "tle1": "1 70087U 26106A   26135.19737269  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70087  97.6628 217.9156 0002756 041.4639 124.0444 15.07044704    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "MASS SIMULATOR",
       "tle1": "1 70086U 26105A   26134.13125000  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70086  89.0993 199.3469 0005119 212.5411 298.1185 15.20604462    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 08 PO",
       "tle1": "1 70085U 26104A   26132.51027778  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70085  89.0285 345.4653 0370467 162.7195 000.2279 15.22967825    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 08",
       "tle1": "1 70085U 26104A   26132.54310185  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70085  89.0285 345.4655 0092015 116.4674 227.2279 14.55606941    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-172 PO",
       "tle1": "1 70084U 26103A   26132.12947917  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70084  70.0178 338.8789 0110552 154.1641 180.9024 16.21282083    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-172",
       "tle1": "1 70084U 26103A   26132.12949074  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70084  70.0090 338.8928 0001000 335.1500 000.0000 15.95310800    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianzhou 10 PO",
       "tle1": "1 70083U 26102A   26131.01789352  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70083  41.4678 188.3050 0138912 146.0232 024.7000 16.02102178    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Tianzhou 10",
       "tle1": "1 70083U 26102A   26131.04497685  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70083  41.4765 188.0902 0055546 144.4030 182.7247 15.81704649    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-29",
       "tle1": "1 70082U 26101A   26126.20907407  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70082  97.2907 339.7365 0010303 270.0414 104.5099 16.03585810    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CAS500-2 & Others PO",
       "tle1": "1 70081U 26100A   26123.29739583  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70081  97.4400 021.9480 0264191 149.4777 007.2000 15.76630589    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CAS500-2 & Others Deploy 1",
       "tle1": "1 70081U 26100A   26123.32754630  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70081  97.4420 021.9491 0006790 073.3813 254.6000 15.16574186    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "CAS500-2 & Others Deploy 2",
       "tle1": "1 70081U 26100A   26123.38408565  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70081  97.6318 021.9120 0015161 275.4947 000.8000 14.92732875    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-38",
       "tle1": "1 70080U 26099A   26121.79633102  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70080  53.1614 028.2468 0010628 263.2504 357.9428 16.05826918    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LE-02) PO",
       "tle1": "1 70079U 26098A   26120.38744213  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70079  51.8806 297.3938 0243439 079.5561 345.6000 15.84869045    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LE-02)",
       "tle1": "1 70079U 26098A   26120.42309028  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70079  51.8806 297.3825 0007593 087.8290 180.0275 15.31094518    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-36",
       "tle1": "1 70078U 26097A   26120.15510417  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70078  97.2916 314.6543 0009860 263.0893 106.3729 16.03697818    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ViaSat-3 F3 PO",
       "tle1": "1 70077U 26096A   26119.59806713  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70077  28.5422 256.2688 0194535 097.7683 012.0955 15.93877177    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ViaSat-3 F3 GTO",
       "tle1": "1 70077U 26096A   26119.61111111  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70077  20.0422 254.2723 7314804 186.4708 000.5039 02.22010342    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "ViaSat-3 F3",
       "tle1": "1 70077U 26096A   26119.79236111  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70077   0.5265 342.8205 0023707 270.0000 000.0000 01.00209800    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LA-06)",
       "tle1": "1 70076U 26095A   26118.04953704  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70076  51.8600 125.2595 0003005 145.0813 298.1185 15.38655891    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-16",
       "tle1": "1 70075U 26094A   26116.65217593  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70075  97.2907 129.7331 0010391 270.1065 105.8873 16.08790478    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Progress MS-34 PO",
       "tle1": "1 70074U 26093A   26115.93802083  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70074  51.6465 199.1893 0095432 057.5310 021.6000 16.05351678    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Progress MS-34",
       "tle1": "1 70074U 26093A   26115.96541667  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70074  51.6465 199.1893 0012410 057.5159 179.8929 15.85603630    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Kosmos 2615 - 2618",
       "tle1": "1 70073U 26090A   26113.36111111  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70073  96.6970 033.8544 0005119 078.9311 001.2000 15.73909083    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-14",
       "tle1": "1 70072U 26089A   26113.18335648  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70072  97.2911 317.8949 0010620 274.0738 097.2577 16.07948639    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Kakushin Rising PO",
       "tle1": "1 70071U 26088A   26113.13754630  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70071  97.4755 263.6655 0281624 204.8758 027.9000 15.69095810    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Kakushin Rising",
       "tle1": "1 70071U 26088A   26113.16689815  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70071  97.4755 263.6624 0007356 217.8620 180.0001 15.08411027    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "GPS III SV10 PO",
       "tle1": "1 70070U 26087A   26111.29288194  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70070  55.0691 211.9128 0208802 043.2225 004.6220 15.88265352    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "GPS III SV10",
       "tle1": "1 70070U 26087A   26111.33193287  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70070  55.0691 211.9062 5916597 266.9934 000.4997 04.05845091    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-22",
       "tle1": "1 70069U 26086A   26109.71146991  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70069  97.2907 144.3769 0010651 272.9361 100.5206 16.08490148    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 #2 PO",
       "tle1": "1 70068U 26085A   26109.48476852  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70068  36.1050 170.3509 0239307 160.1450 346.9830 15.84891594    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "BlueBird Block 2 #2 PLANNED",
       "tle1": "1 70068U 26085A   26109.52347222  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70068  49.4050 172.3534 0001974 006.7124 000.0000 15.35144845    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Kosmos 2609",
       "tle1": "1 70067U 26083A   26107.01015046  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70067  98.3279 252.1956 0064966 082.1080 179.0621 15.22315725    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-27",
       "tle1": "1 70066U 26082A   26105.22983796  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70066  97.2911 326.6287 0012212 284.5955 088.1190 16.09446176    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-24",
       "tle1": "1 70065U 26081A   26104.44081019  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70065  53.1618 242.8930 0007450 284.7029 340.7097 16.05211787    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Cygnus NG-24",
       "tle1": "1 70064U 26079A   26101.49365741  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70064  51.6329 270.7192 0002284 050.3325 000.0000 16.07407103    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-21",
       "tle1": "1 70063U 26077A   26101.25434028  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70063  97.2909 331.4040 0011304 279.4020 096.3967 16.08034861    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 07 PO",
       "tle1": "1 70062U 26075A   26097.57430556  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70062  88.9664 331.0650 0423168 171.0140 020.0000 15.14764536    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SpaceSail Polar Group 07",
       "tle1": "1 70062U 26075A   26097.60383102  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70062  88.9664 331.0649 0064958 352.0564 000.0000 14.10593580    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "STP-S29A",
       "tle1": "1 70061U 26074A   26097.49546296  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70061  60.0585 089.9499 0009311 188.6374 002.4000 15.21521332    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-35",
       "tle1": "1 70060U 26073A   26097.16151620  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70060  97.2909 293.9533 0011304 279.4020 096.3967 16.08034861    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Amazon Leo (LA-05)",
       "tle1": "1 70059U 26072A   26094.25266204  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70059  51.8600 174.9292 0003005 145.0813 298.1185 15.38655891    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Meridian-M No.21L PO",
       "tle1": "1 70058U 26071A   26093.27557870  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70058  62.6667 238.9951 1228972 090.5399 012.0000 13.45464278    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Meridian-M No.21L",
       "tle1": "1 70058U 26071A   26093.31023148  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70058  62.6667 238.9951 6828110 270.4635 000.0000 02.01993651    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TL-3 Demo Flight PO PLANNED",
       "tle1": "1 70057U 26999A   26093.18437500  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70057  97.6784 171.2354 0296436 129.2222 020.0000 15.55157959    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TL-3 Demo Flight PLANNED",
       "tle1": "1 70057U 26999A   26093.21359954  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70057  97.6784 171.2403 0001272 194.9163 117.8849 14.89781911    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-58",
       "tle1": "1 70056U 26070A   26092.53951389  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70056  53.1608 266.6597 0007056 298.0440 327.8732 16.04696954    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Artemis II PO",
       "tle1": "1 70055U 26069A   26091.94670139  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70055  28.5089 002.5963 1462417 065.6369 025.1410 13.35780691    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Artemis II MEO",
       "tle1": "1 70055U 26069A   26091.97652778  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70055  28.5089 002.7301 1346982 064.5090 170.0000 13.13338874    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Artemis II HEO",
       "tle1": "1 70055U 26069A   26092.02097222  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70055  28.5089 001.8300 8483626 058.2583 001.5122 01.00598932    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Artemis II HEO PR",
       "tle1": "1 70055U 26069A   26092.53351852  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70055  28.3222 000.8757 8432928 076.7937 189.6794 01.02686112    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Artemis II TLI",
       "tle1": "1 70055U 26069A   26092.99532407  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70055  28.3222 359.4229 9706388 076.9838 000.0350 00.08327960    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-44",
       "tle1": "1 70054U 26068A   26089.92819444  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70054  53.1603 044.0436 0010878 264.3010 001.2470 16.05294215    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 16 PO",
       "tle1": "1 70053U 26067A   26089.46545139  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70053  97.4400 049.1016 0264191 149.4777 007.2000 15.76630589    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 16 Deploy 1",
       "tle1": "1 70053U 26067A   26089.49560185  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70053  97.4420 049.1027 0006790 073.3813 254.6000 15.16574186    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Transporter 16 Deploy 2",
       "tle1": "1 70053U 26067A   26089.55214120  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70053  97.6318 049.0656 0015161 275.4947 000.8000 14.92732875    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Qingzhou Spacecraft Demo Flight",
       "tle1": "1 70052U 26066A   26089.46457176  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70052  85.7341 277.3473 0001000 159.3941 355.2000 15.51996246    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Daughter Of The Stars PO",
       "tle1": "1 70051U 26065A   26087.41790509  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70051  97.4397 329.4904 0248160 214.1088 171.0092 15.73367558    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Daughter Of The Stars",
       "tle1": "1 70051U 26065A   26087.41790509  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70051  97.4397 329.4886 0007003 260.1724 125.3000 15.18175970    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-17",
       "tle1": "1 70050U 26063A   26086.00354167  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70050  97.2907 226.1188 0011672 284.0285 091.3011 16.10178034    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Rassvet-3",
       "tle1": "1 70049U 26061A   26082.73125000  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70049  82.2988 108.9845 0026921 079.2114 000.0000 15.87895252    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-62",
       "tle1": "1 70048U 26059A   26081.65885417  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70048  53.1611 298.8951 0008653 277.9280 348.0902 16.04393180    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Progress MS-33",
       "tle1": "1 70047U 26058A   26081.50527778  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70047  51.6408 009.7534 0031798 106.9987 334.8875 16.17583196    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-15",
       "tle1": "1 70046U 26057A   26079.95391204  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70046  97.2913 202.2797 0010469 271.8740 103.3985 16.08315280    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Eight Days A Week PO",
       "tle1": "1 70045U 26056A   26079.78975694  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70045  50.2033 047.7186 0287114 244.9804 152.9655 15.57761776    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Eight Days A Week",
       "tle1": "1 70045U 26056A   26079.78975694  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70045  50.2033 047.7353 0007927 006.6258 032.7000 14.97999346    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-33",
       "tle1": "1 70044U 26055A   26078.64013889  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70044  53.1612 289.2134 0008335 278.4546 347.0716 16.04413244    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-46",
       "tle1": "1 70043U 26054A   26076.60368056  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70043  53.1611 274.0517 0008089 282.1517 343.8384 16.05133075    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-24",
       "tle1": "1 70042U 26053A   26076.26459491  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70042  97.2906 310.4778 0010676 272.2658 103.3085 16.09076500    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-48",
       "tle1": "1 70041U 26050A   26073.56858796  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70041  53.1603 258.4606 0009672 271.0257 354.5316 16.05391667    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-31",
       "tle1": "1 70040U 26049A   26072.66643519  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70040  97.2908 091.6372 0011373 279.6885 095.0132 16.08149513    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 20 PO",
       "tle1": "1 70039U 26047A   26071.83263889  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70039  50.0476 056.6187 0444574 179.5334 000.0000 14.88116150    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "SatNet LEO Group 20",
       "tle1": "1 70039U 26047A   26071.86623843  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70039  50.0476 056.6187 0008906 359.5607 000.0000 13.92259885    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Stairway to Seven",
       "tle1": "1 70038U 26046A   26071.04031250  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70038 125.1950 213.9369 0126771 147.1502 000.0000 15.81251994    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "EchoStar 25 PO",
       "tle1": "1 70037U 26045A   26069.18543981  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70037  28.6755 071.1847 0063158 095.8258 000.0000 16.25374426    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "EchoStar 25",
       "tle1": "1 70037U 26045A   26069.19969907  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70037  27.6481 071.1847 6230993 180.0052 000.0000 03.76398630    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-18",
       "tle1": "1 70036U 26044A   26067.50166667  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70036  97.2898 027.1304 0011245 274.4761 101.8635 16.07968761    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Insight At Speed Is A Friend Indeed PO",
       "tle1": "1 70035U 26043A   26065.00289352  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70035  42.0000 096.7525 0230820 269.0000 000.0000 15.75827470    05"
     },
     {
-      "mission": null,
-      "launch": null,
-      "name": "Unknown",
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
+      "name": "SDA Tranche 1 Transport Layer A",
       "tle1": "1 70035U 26043A   26065.02811343  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70035  42.0001 096.7794 0007476 270.4746 143.1099 15.31519688    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "KAIROS Flight 3 PLANNED",
       "tle1": "1 70034U 26999A   26064.09636574  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70034  97.7300 147.7385 0010900 159.0000 000.0000 15.22096800    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-40",
       "tle1": "1 70033U 26042A   26063.49736111  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70033  53.1622 222.2840 0007107 278.2734 356.2889 16.05526525    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-41",
       "tle1": "1 70032U 26041A   26061.16692130  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70032  53.1605 101.0981 0007092 285.8395 348.0251 16.05356770    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-23",
       "tle1": "1 70031U 26040A   26060.46717593  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70031  97.2897 007.7828 0010719 266.7904 109.6074 16.08702980    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-108",
       "tle1": "1 70030U 26039A   26058.55641204  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70030  42.9945 118.4694 0007878 275.5070 102.7530 16.03840883    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-26",
       "tle1": "1 70029U 26038A   26056.63856481  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70029  97.2899 065.7979 0012454 284.5513 090.4823 16.09134652    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-110",
       "tle1": "1 70028U 26037A   26056.00644676  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70028  42.9943 277.9535 0008823 284.0627 094.4023 16.03902550    01"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-104",
       "tle1": "1 70027U 26036A   26053.20289352  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70027  42.9962 345.9000 0009486 284.1388 093.7854 16.02954009    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-25",
       "tle1": "1 70026U 26035A   26052.46278935  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70026  97.2896 358.3074 0011839 279.3044 097.2149 16.08182246    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 10-36",
       "tle1": "1 70025U 26034A   26051.11413194  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70025  53.1629 300.3954 0011641 293.7611 083.1493 16.03316194    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-103",
       "tle1": "1 70024U 26033A   26047.37855324  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70024  42.9965 043.4112 0009748 286.7430 091.7097 16.04101497    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-13",
       "tle1": "1 70023U 26032A   26046.12682870  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70023  97.2897 231.0251 0010797 247.7207 131.3885 16.08322506    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Crew-12",
       "tle1": "1 70022U 26031A   26044.43383102  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70022  51.6400 192.5891 0009116 052.0000 000.0000 16.25745600    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "LE-01 PO",
       "tle1": "1 70021U 26030A   26043.71156250  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70021  51.8403 339.7253 0234306 060.0000 351.0000 15.84990000    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "LE-01",
       "tle1": "1 70021U 26030A   26043.74767361  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70021  51.8403 339.7253 0007096 074.0000 180.2000 15.33172800    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-87 PO",
       "tle1": "1 70020U 26029A   26043.40133102  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70020  28.5000 110.2356 0033160 314.0000 171.0000 15.27476000    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "USSF-87 GTO",
       "tle1": "1 70020U 26029A   26043.41313657  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70020  15.5000 104.0356 7266504 179.0000 002.0000 02.17977200    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-34",
       "tle1": "1 70019U 26026A   26042.76008102  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70019  97.2899 095.6190 0010919 250.4350 129.7197 16.09047610    02"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-33",
       "tle1": "1 70018U 26999A   26038.91695602  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70018  97.2910 148.4987 0011972 279.6700 096.0399 16.07517952    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-32",
       "tle1": "1 70017U 26022A   26033.70087963  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70017  97.2910 065.5700 0011972 279.6700 096.0399 16.07517952    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-101",
       "tle1": "1 70016U 26020A   26030.35215278  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70016  42.9947 017.0960 0007274 267.1489 111.3167 16.04040218    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Bridging The Swarm PO",
       "tle1": "1 70015U 25019A   26030.04504630  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70015  97.4499 148.2316 0281565 239.0000 356.9450 15.60954000    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Bridging The Swarm",
       "tle1": "1 70015U 25019A   26030.07260417  .00000000  00000-0  00000-0 0  9998",
       "tle2": "2 70015  97.4499 148.2316 0003466 212.2800 180.0124 15.05483200    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-19",
       "tle1": "1 70014U 26018A   26029.78837963  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70014  97.2910 093.2137 0011972 279.6708 096.0399 16.07517952    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "GPS III SV09 PO",
       "tle1": "1 70013U 25017A   26028.20908565  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70013  55.0221 099.4496 0226571 043.6667 004.6058 15.87800172    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "GPS III SV09",
       "tle1": "1 70013U 25017A   26028.36269676  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70013  55.0241 099.3697 5932880 270.0122 166.0781 04.03197391    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-20",
       "tle1": "1 70012U 26016A   26025.77269676  .00033015  00000-0  41372-4 0  9993",
       "tle2": "2 70012  97.2906 083.6243 0011020 270.6608 105.6107 16.07501555    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Cosmos Will See You Now PO",
       "tle1": "1 70011U 26015A   26022.45901620  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70011  89.0235 283.2596 0627842 253.8900 342.0000 14.79786400    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "The Cosmos Will See You Now",
       "tle1": "1 70011U 26015A   26022.49927083  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70011  89.0235 283.2547 0005386 088.4200 000.0000 13.56346800    09"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 17-30",
       "tle1": "1 70010U 26014A   26022.15890046  .00019681  00000-0  24737-4 0  9998",
       "tle2": "2 70010  97.2886 219.0247 0011767 278.0041 099.2576 16.07439173    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-100",
       "tle1": "1 70009U 26012A   26019.02550926  .00031596  00000-0  41929-4 0  9997",
       "tle2": "2 70009  42.9949 248.3498 0008017 276.9126 101.5516 16.05620788    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-105 PO",
       "tle1": "1 70008U 26011A   26017.20063657  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70008  70.0211 262.2641 0096546 160.8100 355.9320 16.23154400    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "NROL-105",
       "tle1": "1 70008U 26011A   26017.23149306  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70008  70.0211 262.2641 0007513 336.8500 000.0000 15.98915600    06"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-98",
       "tle1": "1 70007U 26008A   26014.80090278  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70007  42.9952 163.3746 0007197 266.6200 111.4039 16.05995754    03"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-97",
       "tle1": "1 70006U 26005A   26012.87900463  .00039514  00000-0  51118-4 0  9996",
       "tle2": "2 70006  42.9952 189.4925 0008089 277.9753 100.6362 16.06025155    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "EOS-N1 PLANNED",
       "tle1": "1 70005U 26999A   26012.21192130  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70005  97.5484 086.6964 0003014 231.3610 336.1075 15.19474000    00"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TWILIGHT PO",
       "tle1": "1 70004U 25004A   26011.57894676  .00000000  00000-0  00000-0 0  9994",
       "tle2": "2 70004  97.4449 013.2297 0235983 170.1490 348.3780 15.73187600    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TWILIGHT DEPLOY-1",
       "tle1": "1 70004U 25004A   26011.61540509  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70004  97.4394 013.2059 0001417 067.6770 297.6073 15.17685448    08"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "TWILIGHT DEPLOY-2",
       "tle1": "1 70004U 25004A   26011.67052083  .00000000  00000-0  00000-0 0  9993",
       "tle2": "2 70004  97.7218 013.2225 0006453 097.6040 207.9887 14.90880800    05"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-96",
       "tle1": "1 70003U 26003A   26009.94868056  .00037210  00000-0  48572-4 0  9997",
       "tle2": "2 70003  42.9949 211.6861 0009239 286.6231 091.9978 16.05859951    07"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "Starlink 6-88",
       "tle1": "1 70002U 26002A   26004.32854167  .00038597  00000-0  55024-4 0  9999",
       "tle2": "2 70002  42.9953 342.9980 0008022 278.2359 099.7809 16.04456578    04"
     },
     {
-      "mission": null,
-      "launch": null,
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 05 2026 08:17:00 UTC",
       "name": "​CSG-3",
       "tle1": "1 70001U 26001A   26003.09708333  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70001  97.8603 189.4745 0029607 138.0342 016.4013 14.84374000    02"
