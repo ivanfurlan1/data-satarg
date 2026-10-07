@@ -1,15 +1,8 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-07T03:01:47.276Z",
+  "updatedAt": "2026-10-07T03:31:50.502Z",
   "missions": [
-    {
-      "mission": "NeonSat-2 to 6",
-      "launch": "Oct 07 2026 03:25:00 UTC",
-      "name": "NeonSat-2 to 6",
-      "tle1": "1 70211U 26000A   26280.14930556  .00000000  00000-0  00000-0 0  9990",
-      "tle2": "2 70211  97.8746 015.5963 0005119 229.3963 298.1185 14.97155653    03"
-    },
     {
       "mission": "SDA Tranche 1 Transport Layer A",
       "launch": "Oct 08 2026 07:54:00 UTC",
@@ -23,6 +16,13 @@
       "name": "Tranche 1 Transport Layer A",
       "tle1": "1 70212U 26230A   26281.36868056  .00000000  00000-0  00000-0 0  9996",
       "tle2": "2 70212  81.0651 202.6588 0003413 338.2401 000.0000 13.85060346    04"
+    },
+    {
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 08 2026 07:54:00 UTC",
+      "name": "NeonSat-2 to 6",
+      "tle1": "1 70211U 26000A   26280.14930556  .00000000  00000-0  00000-0 0  9990",
+      "tle2": "2 70211  97.8746 015.5963 0005119 229.3963 298.1185 14.97155653    03"
     },
     {
       "mission": "SDA Tranche 1 Transport Layer A",
