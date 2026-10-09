@@ -1,21 +1,35 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-09T23:01:42.251Z",
+  "updatedAt": "2026-10-09T23:31:11.458Z",
   "missions": [
     {
       "mission": "SDA Tranche 1 Transport Layer A",
       "launch": "Oct 10 2026 07:39:00 UTC",
       "name": "Tranche 1 Transport Layer A PO",
-      "tle1": "1 70212U 26231A   26283.32523148  .00000000  00000-0  00000-0 0  9995",
-      "tle2": "2 70212  81.0651 200.8729 0564016 158.1600 001.1000 15.04647600    01"
+      "tle1": "1 70213U 26231A   26283.32523148  .00000000  00000-0  00000-0 0  9996",
+      "tle2": "2 70213  81.0651 200.8729 0564016 158.1600 001.1000 15.04647600    02"
     },
     {
       "mission": "SDA Tranche 1 Transport Layer A",
       "launch": "Oct 10 2026 07:39:00 UTC",
       "name": "Tranche 1 Transport Layer A",
-      "tle1": "1 70212U 26231A   26283.35826389  .00000000  00000-0  00000-0 0  9991",
-      "tle2": "2 70212  81.0651 200.8698 0003413 338.2401 000.0000 13.85060346    06"
+      "tle1": "1 70213U 26231A   26283.35826389  .00000000  00000-0  00000-0 0  9992",
+      "tle2": "2 70213  81.0651 200.8698 0003413 338.2401 000.0000 13.85060346    07"
+    },
+    {
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 10 2026 07:39:00 UTC",
+      "name": "SatNet LEO Group 27 PO",
+      "tle1": "1 70212U 26221A   26282.82291667  .00000000  00000-0  00000-0 0  9996",
+      "tle2": "2 70212  49.9544 259.6737 0479584 149.4819 042.3000 15.04917717    02"
+    },
+    {
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "launch": "Oct 10 2026 07:39:00 UTC",
+      "name": "SatNet LEO Group 27",
+      "tle1": "1 70212U 26221A   26282.84844907  .00000000  00000-0  00000-0 0  9999",
+      "tle2": "2 70212  49.9544 259.6563 0048133 149.4528 180.6468 14.12094563    05"
     },
     {
       "mission": "SDA Tranche 1 Transport Layer A",
