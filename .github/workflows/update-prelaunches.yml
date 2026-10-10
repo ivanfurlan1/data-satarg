@@ -9,6 +9,7 @@ permissions:
 jobs:
   update-prelaunches:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -18,98 +19,428 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generar y ejecutar el cerebro de Matching (Node.js)
+      - name: Obtener Pre-Launches y respaldos de CelesTrak
         run: |
           cat << 'EOF' > fetch_prelaunches.js
           const fs = require('fs');
 
-          async function run() {
+          const INDEX_URL =
+            'https://celestrak.org/NORAD/elements/supplemental/index.php';
+
+          const DATA_URL =
+            'https://celestrak.org/NORAD/elements/supplemental/sup-gp.php';
+
+          const MAX_BACKUPS = 10;
+          const REQUEST_DELAY_MS = 250;
+
+          const sleep = ms =>
+            new Promise(resolve => setTimeout(resolve, ms));
+
+          async function fetchResponse(url) {
+            const response = await fetch(url, {
+              headers: {
+                'User-Agent': 'Satarg-Explorer-Prelaunch-Updater/1.0',
+                'Accept': 'text/html,application/json,*/*'
+              },
+              signal: AbortSignal.timeout(30000)
+            });
+
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${url}`);
+            }
+
+            return response;
+          }
+
+          async function fetchJson(url) {
+            const response = await fetchResponse(url);
+            return response.json();
+          }
+
+          function decodeHtml(value) {
+            return String(value || '')
+              .replace(/&amp;/gi, '&')
+              .replace(/&quot;/gi, '"')
+              .replace(/&#39;|&apos;/gi, "'")
+              .replace(/&lt;/gi, '<')
+              .replace(/&gt;/gi, '>')
+              .replace(/&nbsp;/gi, ' ')
+              .trim();
+          }
+
+          function stripTags(value) {
+            return decodeHtml(
+              String(value || '').replace(/<[^>]*>/g, ' ')
+            ).replace(/\s+/g, ' ').trim();
+          }
+
+          function normalize(value) {
+            return String(value || '')
+              .toLowerCase()
+              .replace(/pre[\s-]?launch/g, '')
+              .replace(/group/g, 'g')
+              .replace(/[^a-z0-9]/g, '');
+          }
+
+          function cleanMissionName(value) {
+            return stripTags(value)
+              .replace(/\s*pre[\s-]?launch\s*/gi, ' ')
+              .replace(/\s+/g, ' ')
+              .trim();
+          }
+
+          function getFileId(href) {
             try {
-              console.log("Leyendo proximos lanzamientos desde el archivo local...");
-              const ll2DataRaw = fs.readFileSync('launches/next-launches.json', 'utf-8');
-              const ll2Data = JSON.parse(ll2DataRaw);
-              const launches = ll2Data.results || [];
-
-              console.log("Obteniendo pagina de CelesTrak (HTML)...");
-              const celRes = await fetch("https://celestrak.org/NORAD/elements/supplemental/index.php");
-              if (!celRes.ok) throw new Error("Error conectando con CelesTrak");
-              const html = await celRes.text();
-
-              // Esta expresion busca directamente en el HTML de la pagina los nombres y los codigos FILE
-              const regex = />([^<]+Pre-Launch)[^<]*<\/a>.*?href="sup-gp\.php\?FILE=([^&"]+)/gi;
-              const preLaunchDatasets = [];
-              let regexMatch;
-              
-              // Recopilamos todos los pre-launches leyendo el texto de la pagina
-              while ((regexMatch = regex.exec(html)) !== null) {
-                  preLaunchDatasets.push({
-                      NAME: regexMatch[1].trim(),
-                      FILE: regexMatch[2].trim()
-                  });
-              }
-
-              const normalize = (str) => {
-                if (!str) return "";
-                return str.toLowerCase()
-                          .replace(/pre-launch|prelaunch/g, '')
-                          .replace(/group/g, 'g')
-                          .replace(/[^a-z0-9]/g, '');
-              };
-
-              let finalPrelaunches = [];
-
-              for (const dataset of preLaunchDatasets) {
-                const nameCelNorm = normalize(dataset.NAME);
-                
-                const matchedLL2 = launches.find(launch => {
-                    const nameLL2Norm = normalize(launch.name);
-                    return nameCelNorm.includes(nameLL2Norm) || nameLL2Norm.includes(nameCelNorm);
-                });
-
-                const cleanName = dataset.NAME.replace(/ Pre-Launch/gi, '').trim();
-                const fileId = dataset.FILE;
-
-                console.log(`Procesando CelesTrak Pre-Launch: ${cleanName} | Sincronizado con LL2: ${!!matchedLL2}`);
-
-                const prelaunchRes = await fetch(`https://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=${fileId}&FORMAT=JSON`);
-                
-                if (prelaunchRes.ok) {
-                  const prelaunchData = await prelaunchRes.json();
-                  
-                  const filteredData = prelaunchData.filter(d => 
-                     d.OBJECT_NAME.includes('SINGLE') || 
-                     (!d.OBJECT_NAME.includes('STACK') && !d.OBJECT_NAME.includes('DEPLOY'))
-                  );
-                  const finalData = filteredData.length > 0 ? filteredData : prelaunchData;
-                  
-                  finalPrelaunches.push({
-                      celestrak_name: cleanName,
-                      celestrak_file: fileId,
-                      is_matched_with_ll2: !!matchedLL2,
-                      launch_id: matchedLL2 ? matchedLL2.id : null,
-                      launch_name_ll2: matchedLL2 ? matchedLL2.name : null,
-                      net: matchedLL2 ? matchedLL2.net : null,
-                      data: finalData
-                  });
-                }
-              }
-              
-              fs.mkdirSync('launches', { recursive: true });
-              fs.writeFileSync('launches/prelaunches.json', JSON.stringify(finalPrelaunches, null, 2));
-              console.log(`¡Exito! Se recopilaron ${finalPrelaunches.length} Pre-Launches en total.`);
-            } catch (err) {
-              console.error("Error:", err);
-              process.exit(1);
+              return new URL(href, INDEX_URL).searchParams.get('FILE');
+            } catch {
+              const match = href.match(/[?&]FILE=([^&"']+)/i);
+              return match ? decodeURIComponent(match[1]) : null;
             }
           }
-          run();
+
+          function isBackupFile(fileId, label = '') {
+            return /b\d+$/i.test(fileId || '') ||
+              /\b(?:backup|back-up|alternate|alternative)\b/i.test(label) ||
+              /\bopportunity\s*#?\s*\d+/i.test(label);
+          }
+
+          function baseFileId(fileId) {
+            return String(fileId || '').replace(/b\d+$/i, '');
+          }
+
+          // Read the HTML once and collect published FILE links.
+          // Do not guess backup URLs: only use links actually published by CelesTrak.
+          function extractDatasets(html) {
+            const results = [];
+            const seen = new Set();
+            const anchorRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+
+            let match;
+
+            while ((match = anchorRegex.exec(html)) !== null) {
+              const attributes = match[1];
+              const label = stripTags(match[2]);
+              const hrefMatch = attributes.match(
+                /\bhref\s*=\s*["']([^"']+)["']/i
+              );
+
+              if (!hrefMatch) continue;
+
+              const href = decodeHtml(hrefMatch[1]);
+
+              if (!/sup-gp\.php/i.test(href) ||
+                  !/[?&]FILE=/i.test(href)) {
+                continue;
+              }
+
+              const fileId = getFileId(href);
+
+              if (!fileId || seen.has(fileId)) continue;
+
+              const backup = isBackupFile(fileId, label);
+              const primary = /pre[\s-]?launch/i.test(label);
+
+              // Include primary Pre-Launch links and explicitly identifiable backups.
+              if (!primary && !backup) continue;
+
+              results.push({
+                name: label,
+                file: fileId,
+                isBackup: backup
+              });
+
+              seen.add(fileId);
+            }
+
+            return results;
+          }
+
+          function matchLaunch(dataset, launches) {
+            const datasetName = normalize(cleanMissionName(dataset.name));
+
+            if (datasetName.length < 5) return null;
+
+            // Prefer the longest matching launch name to reduce false matches.
+            const matches = launches
+              .filter(launch => {
+                const launchName = normalize(launch.name);
+
+                return launchName.length >= 5 &&
+                  (datasetName.includes(launchName) ||
+                   launchName.includes(datasetName));
+              })
+              .sort((a, b) =>
+                normalize(b.name).length - normalize(a.name).length
+              );
+
+            return matches[0] || null;
+          }
+
+          async function getOrbitalData(fileId) {
+            const url =
+              `${DATA_URL}?FILE=${encodeURIComponent(fileId)}&FORMAT=JSON`;
+
+            const result = await fetchJson(url);
+
+            if (!Array.isArray(result)) {
+              throw new Error(`Respuesta JSON inválida para ${fileId}`);
+            }
+
+            // Preserve the existing filtering behavior.
+            const filtered = result.filter(item => {
+              const name = String(item.OBJECT_NAME || '').toUpperCase();
+
+              return name.includes('SINGLE') ||
+                (!name.includes('STACK') && !name.includes('DEPLOY'));
+            });
+
+            return filtered.length > 0 ? filtered : result;
+          }
+
+          function parseSchedule(html, missionName) {
+            // Preserve line breaks while converting the page into searchable text.
+            const text = decodeHtml(
+              html
+                .replace(/<br\s*\/?>/gi, '\n')
+                .replace(/<\/(?:tr|p|div|li|h[1-6])>/gi, '\n')
+                .replace(/<[^>]*>/g, ' ')
+            );
+
+            const lines = text
+              .split(/\n+/)
+              .map(line => line.replace(/\s+/g, ' ').trim())
+              .filter(Boolean);
+
+            const target = normalize(missionName);
+            let start = -1;
+
+            // Find the section corresponding to this mission.
+            for (let i = 0; i < lines.length; i++) {
+              const line = normalize(lines[i]);
+
+              if (line.includes(target) &&
+                  /pre[\s-]?launch/i.test(lines[i])) {
+                start = i;
+                break;
+              }
+            }
+
+            if (start === -1) {
+              return {};
+            }
+
+            const section = [];
+
+            for (let i = start; i < lines.length; i++) {
+              if (i > start &&
+                  /pre[\s-]?launch/i.test(lines[i]) &&
+                  !normalize(lines[i]).includes(target)) {
+                break;
+              }
+
+              section.push(lines[i]);
+
+              // Keep this bounded so another mission's details are not scanned.
+              if (section.length >= 100) break;
+            }
+
+            const sectionText = section.join('\n');
+            const schedule = {};
+
+            const launchMatch = sectionText.match(
+              /\bLaunch\s*:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s*UTC/i
+            );
+
+            const deployMatch = sectionText.match(
+              /\bDeploy\s*:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?)\s*UTC/i
+            );
+
+            const windowMatch = sectionText.match(
+              /\bLaunch window\s*:\s*([^\n]+)/i
+            );
+
+            if (launchMatch) {
+              schedule.net = launchMatch[1].replace(' ', 'T') + 'Z';
+            }
+
+            if (deployMatch) {
+              schedule.deploy = deployMatch[1].replace(' ', 'T') + 'Z';
+            }
+
+            if (windowMatch) {
+              schedule.launch_window = windowMatch[1].trim();
+            }
+
+            return schedule;
+          }
+
+          async function run() {
+            const inputPath = 'launches/next-launches.json';
+
+            if (!fs.existsSync(inputPath)) {
+              throw new Error(`No se encontró ${inputPath}`);
+            }
+
+            const ll2Data = JSON.parse(
+              fs.readFileSync(inputPath, 'utf8')
+            );
+
+            const launches = Array.isArray(ll2Data.results)
+              ? ll2Data.results
+              : [];
+
+            console.log('Descargando índice de CelesTrak una sola vez...');
+
+            const indexResponse = await fetchResponse(INDEX_URL);
+            const html = await indexResponse.text();
+
+            const datasets = extractDatasets(html);
+
+            const primaryDatasets = datasets.filter(
+              item => !item.isBackup &&
+                /pre[\s-]?launch/i.test(item.name)
+            );
+
+            const backupDatasets = datasets.filter(
+              item => item.isBackup
+            );
+
+            console.log(`Misiones principales detectadas: ${primaryDatasets.length}`);
+            console.log(`Archivos de respaldo publicados: ${backupDatasets.length}`);
+
+            const output = [];
+            const failedFiles = [];
+
+            for (const primary of primaryDatasets) {
+              const missionName = cleanMissionName(primary.name);
+              const missionFileBase = baseFileId(primary.file);
+              const matchedLL2 = matchLaunch(primary, launches);
+
+              // Group only backups belonging to this mission.
+              // Example: starlink-g15-25b1 belongs to starlink-g15-25.
+              const backups = backupDatasets
+                .filter(item =>
+                  baseFileId(item.file).toLowerCase() ===
+                  missionFileBase.toLowerCase()
+                )
+                .sort((a, b) => {
+                  const aNumber = Number((a.file.match(/b(\d+)$/i) || [])[1] || 0);
+                  const bNumber = Number((b.file.match(/b(\d+)$/i) || [])[1] || 0);
+                  return aNumber - bNumber;
+                })
+                .slice(0, MAX_BACKUPS);
+
+              console.log(
+                `\nMisión: ${missionName} | Archivo: ${primary.file}`
+              );
+              console.log(
+                `Coincidencia LL2: ${matchedLL2 ? matchedLL2.name : 'ninguna'}`
+              );
+              console.log(`Respaldos publicados: ${backups.length}`);
+
+              let mainData;
+
+              try {
+                mainData = await getOrbitalData(primary.file);
+              } catch (error) {
+                console.error(
+                  `No se pudo descargar la misión principal ${primary.file}: ${error.message}`
+                );
+                failedFiles.push(primary.file);
+
+                // Never replace a valid mission with an entry missing orbital data.
+                continue;
+              }
+
+              await sleep(REQUEST_DELAY_MS);
+
+              const schedule = parseSchedule(html, missionName);
+
+              const entry = {
+                celestrak_name: missionName,
+                celestrak_file: primary.file,
+                is_matched_with_ll2: Boolean(matchedLL2),
+                launch_id: matchedLL2 ? matchedLL2.id : null,
+                launch_name_ll2: matchedLL2 ? matchedLL2.name : null,
+
+                // Prefer CelesTrak's published launch time when parsed.
+                // Fall back to LL2 only if the CelesTrak time is unavailable.
+                net: schedule.net || (matchedLL2 ? matchedLL2.net : null),
+
+                launch_window: schedule.launch_window || null,
+                deploy: schedule.deploy || null,
+
+                data: mainData,
+                backups: []
+              };
+
+              for (const backup of backups) {
+                try {
+                  const backupData = await getOrbitalData(backup.file);
+
+                  const numberMatch = backup.file.match(/b(\d+)$/i);
+                  const opportunity = numberMatch
+                    ? Number(numberMatch[1])
+                    : entry.backups.length + 1;
+
+                  entry.backups.push({
+                    opportunity,
+                    celestrak_name: cleanMissionName(backup.name),
+                    celestrak_file: backup.file,
+                    data: backupData
+                  });
+
+                  console.log(
+                    `  Respaldo ${opportunity} OK: ${backup.file} ` +
+                    `(${backupData.length} objeto(s))`
+                  );
+                } catch (error) {
+                  console.warn(
+                    `  Se omite el respaldo ${backup.file}: ${error.message}`
+                  );
+                  failedFiles.push(backup.file);
+                }
+
+                await sleep(REQUEST_DELAY_MS);
+              }
+
+              output.push(entry);
+            }
+
+            fs.mkdirSync('launches', { recursive: true });
+
+            fs.writeFileSync(
+              'launches/prelaunches.json',
+              JSON.stringify(output, null, 2) + '\n'
+            );
+
+            console.log('\n========================================');
+            console.log(`Misiones guardadas: ${output.length}`);
+            console.log(`Archivos que fallaron: ${failedFiles.length}`);
+
+            if (failedFiles.length) {
+              console.warn(`Fallidos: ${failedFiles.join(', ')}`);
+            }
+          }
+
+          run().catch(error => {
+            console.error('Error fatal:', error);
+            process.exit(1);
+          });
           EOF
+
           node fetch_prelaunches.js
 
       - name: Commit cambios
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+
           git add launches/prelaunches.json
-          git commit -m "update pre-launches data" || echo "sin cambios"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "Sin cambios en prelaunches.json"
+          else
+            git commit -m "update pre-launches data"
+            git push
+          fi
