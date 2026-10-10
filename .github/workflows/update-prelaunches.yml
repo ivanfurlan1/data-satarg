@@ -1,3 +1,4 @@
+
 name: Update Pre-Launches
 
 on:
@@ -31,258 +32,240 @@ jobs:
             'https://celestrak.org/NORAD/elements/supplemental/sup-gp.php';
 
           const MAX_BACKUPS = 10;
-          const REQUEST_DELAY_MS = 250;
 
-          const sleep = ms =>
-            new Promise(resolve => setTimeout(resolve, ms));
+          function decodeEntities(text) {
+            return text
+              .replace(/&nbsp;|&#160;/gi, ' ')
+              .replace(/&amp;/gi, '&')
+              .replace(/&quot;/gi, '"')
+              .replace(/&#39;|&apos;/gi, "'")
+              .replace(/&lt;/gi, '<')
+              .replace(/&gt;/gi, '>')
+              .replace(/&#(\d+);/g, (_, n) =>
+                String.fromCodePoint(Number(n))
+              )
+              .replace(/&#x([0-9a-f]+);/gi, (_, n) =>
+                String.fromCodePoint(parseInt(n, 16))
+              );
+          }
 
-          async function fetchResponse(url) {
+          function htmlToText(html) {
+            return decodeEntities(
+              html
+                .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+                .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+                .replace(/<!--[\s\S]*?-->/g, ' ')
+                .replace(/<br\b[^>]*>/gi, '\n')
+                .replace(/<\/(?:p|div|h[1-6]|li|tr|section|article)>/gi, '\n')
+                .replace(/<[^>]*>/g, ' ')
+            )
+              .replace(/\r/g, '')
+              .replace(/[ \t]+/g, ' ')
+              .replace(/ *\n */g, '\n')
+              .replace(/\n{2,}/g, '\n')
+              .trim();
+          }
+
+          function cleanName(name) {
+            return decodeEntities(name)
+              .replace(/<[^>]*>/g, '')
+              .replace(/\s+/g, ' ')
+              .replace(/pre[\s-]?launch/gi, '')
+              .trim();
+          }
+
+          function makeFileId(name) {
+            return cleanName(name)
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '')
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '');
+          }
+
+          function normalize(name) {
+            return String(name || '')
+              .toLowerCase()
+              .replace(/pre[\s-]?launch/gi, '')
+              .replace(/group/g, 'g')
+              .replace(/[^a-z0-9]/g, '');
+          }
+
+          function extractDatasets(html) {
+            const result = [];
+            const anchorRegex = /<a\b[^>]*>([\s\S]*?)<\/a>/gi;
+            let match;
+
+            while ((match = anchorRegex.exec(html)) !== null) {
+              const anchorText = htmlToText(match[1]);
+
+              if (!/pre[\s-]?launch/i.test(anchorText)) {
+                continue;
+              }
+
+              const name = cleanName(anchorText);
+              const fileId = makeFileId(name);
+
+              if (!name || !fileId) continue;
+
+              if (result.some(item => item.fileId === fileId)) {
+                continue;
+              }
+
+              result.push({
+                name,
+                anchorText,
+                fileId
+              });
+            }
+
+            return result;
+          }
+
+          function parseUtcDate(text, label) {
+            const regex = new RegExp(
+              label +
+              String.raw`\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?)\s*UTC`,
+              'i'
+            );
+
+            const match = text.match(regex);
+            if (!match) return null;
+
+            const value = match[1].replace(/\s+/, 'T') + 'Z';
+            const date = new Date(value);
+
+            return Number.isNaN(date.getTime())
+              ? null
+              : date.toISOString();
+          }
+
+          function parseSchedule(text) {
+            const launchWindowMatch = text.match(
+              /Launch window:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?)\s*UTC\s*to\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?)\s*UTC/i
+            );
+
+            let launchWindow = null;
+
+            if (launchWindowMatch) {
+              const start = new Date(
+                launchWindowMatch[1].replace(/\s+/, 'T') + 'Z'
+              );
+              const end = new Date(
+                launchWindowMatch[2].replace(/\s+/, 'T') + 'Z'
+              );
+
+              if (
+                !Number.isNaN(start.getTime()) &&
+                !Number.isNaN(end.getTime())
+              ) {
+                launchWindow = {
+                  start: start.toISOString(),
+                  end: end.toISOString()
+                };
+              }
+            }
+
+            return {
+              launch: parseUtcDate(text, 'Launch:'),
+              deploy: parseUtcDate(text, 'Deploy:'),
+              launch_window: launchWindow
+            };
+          }
+
+          async function fetchText(url) {
             const response = await fetch(url, {
+              signal: AbortSignal.timeout(25000),
               headers: {
-                'User-Agent': 'Satarg-Explorer-Prelaunch-Updater/1.0',
-                'Accept': 'text/html,application/json,*/*'
-              },
-              signal: AbortSignal.timeout(30000)
+                'User-Agent': 'SatargExplorer-PrelaunchUpdater/1.0'
+              }
             });
 
             if (!response.ok) {
               throw new Error(`HTTP ${response.status}: ${url}`);
             }
 
-            return response;
+            return response.text();
           }
 
-          async function fetchJson(url) {
-            const response = await fetchResponse(url);
-            return response.json();
-          }
-
-          function decodeHtml(value) {
-            return String(value || '')
-              .replace(/&amp;/gi, '&')
-              .replace(/&quot;/gi, '"')
-              .replace(/&#39;|&apos;/gi, "'")
-              .replace(/&lt;/gi, '<')
-              .replace(/&gt;/gi, '>')
-              .replace(/&nbsp;/gi, ' ')
-              .trim();
-          }
-
-          function stripTags(value) {
-            return decodeHtml(
-              String(value || '').replace(/<[^>]*>/g, ' ')
-            ).replace(/\s+/g, ' ').trim();
-          }
-
-          function normalize(value) {
-            return String(value || '')
-              .toLowerCase()
-              .replace(/pre[\s-]?launch/g, '')
-              .replace(/group/g, 'g')
-              .replace(/[^a-z0-9]/g, '');
-          }
-
-          function cleanMissionName(value) {
-            return stripTags(value)
-              .replace(/\s*pre[\s-]?launch\s*/gi, ' ')
-              .replace(/\s+/g, ' ')
-              .trim();
-          }
-
-          function getFileId(href) {
-            try {
-              return new URL(href, INDEX_URL).searchParams.get('FILE');
-            } catch {
-              const match = href.match(/[?&]FILE=([^&"']+)/i);
-              return match ? decodeURIComponent(match[1]) : null;
-            }
-          }
-
-          function isBackupFile(fileId, label = '') {
-            return /b\d+$/i.test(fileId || '') ||
-              /\b(?:backup|back-up|alternate|alternative)\b/i.test(label) ||
-              /\bopportunity\s*#?\s*\d+/i.test(label);
-          }
-
-          function baseFileId(fileId) {
-            return String(fileId || '').replace(/b\d+$/i, '');
-          }
-
-          // Read the HTML once and collect published FILE links.
-          // Do not guess backup URLs: only use links actually published by CelesTrak.
-          function extractDatasets(html) {
-            const results = [];
-            const seen = new Set();
-            const anchorRegex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-
-            let match;
-
-            while ((match = anchorRegex.exec(html)) !== null) {
-              const attributes = match[1];
-              const label = stripTags(match[2]);
-              const hrefMatch = attributes.match(
-                /\bhref\s*=\s*["']([^"']+)["']/i
-              );
-
-              if (!hrefMatch) continue;
-
-              const href = decodeHtml(hrefMatch[1]);
-
-              if (!/sup-gp\.php/i.test(href) ||
-                  !/[?&]FILE=/i.test(href)) {
-                continue;
-              }
-
-              const fileId = getFileId(href);
-
-              if (!fileId || seen.has(fileId)) continue;
-
-              const backup = isBackupFile(fileId, label);
-              const primary = /pre[\s-]?launch/i.test(label);
-
-              // Include primary Pre-Launch links and explicitly identifiable backups.
-              if (!primary && !backup) continue;
-
-              results.push({
-                name: label,
-                file: fileId,
-                isBackup: backup
-              });
-
-              seen.add(fileId);
-            }
-
-            return results;
-          }
-
-          function matchLaunch(dataset, launches) {
-            const datasetName = normalize(cleanMissionName(dataset.name));
-
-            if (datasetName.length < 5) return null;
-
-            // Prefer the longest matching launch name to reduce false matches.
-            const matches = launches
-              .filter(launch => {
-                const launchName = normalize(launch.name);
-
-                return launchName.length >= 5 &&
-                  (datasetName.includes(launchName) ||
-                   launchName.includes(datasetName));
-              })
-              .sort((a, b) =>
-                normalize(b.name).length - normalize(a.name).length
-              );
-
-            return matches[0] || null;
-          }
-
-          async function getOrbitalData(fileId) {
+          async function fetchDataset(fileId) {
             const url =
               `${DATA_URL}?FILE=${encodeURIComponent(fileId)}&FORMAT=JSON`;
 
-            const result = await fetchJson(url);
+            let lastError;
 
-            if (!Array.isArray(result)) {
-              throw new Error(`Respuesta JSON inválida para ${fileId}`);
+            for (let attempt = 1; attempt <= 3; attempt++) {
+              try {
+                const response = await fetch(url, {
+                  signal: AbortSignal.timeout(25000),
+                  headers: {
+                    'User-Agent': 'SatargExplorer-PrelaunchUpdater/1.0'
+                  }
+                });
+
+                if (!response.ok) {
+                  throw new Error(`HTTP ${response.status}`);
+                }
+
+                const json = await response.json();
+
+                if (!Array.isArray(json) || json.length === 0) {
+                  throw new Error('La respuesta no contiene un array con datos');
+                }
+
+                // Mantiene la lógica original de Satarg:
+                // prioriza SINGLE y elimina STACK/DEPLOY.
+                const filtered = json.filter(item => {
+                  const objectName = String(item.OBJECT_NAME || '').toUpperCase();
+
+                  return objectName.includes('SINGLE') ||
+                    (!objectName.includes('STACK') &&
+                     !objectName.includes('DEPLOY'));
+                });
+
+                return filtered.length > 0 ? filtered : json;
+              } catch (error) {
+                lastError = error;
+                console.warn(
+                  `Intento ${attempt}/3 fallido para ${fileId}: ${error.message}`
+                );
+
+                if (attempt < 3) {
+                  await new Promise(resolve => setTimeout(resolve, 1500));
+                }
+              }
             }
 
-            // Preserve the existing filtering behavior.
-            const filtered = result.filter(item => {
-              const name = String(item.OBJECT_NAME || '').toUpperCase();
-
-              return name.includes('SINGLE') ||
-                (!name.includes('STACK') && !name.includes('DEPLOY'));
-            });
-
-            return filtered.length > 0 ? filtered : result;
+            throw new Error(
+              `No se pudo descargar ${fileId}: ${lastError?.message}`
+            );
           }
 
-          function parseSchedule(html, missionName) {
-            // Preserve line breaks while converting the page into searchable text.
-            const text = decodeHtml(
-              html
-                .replace(/<br\s*\/?>/gi, '\n')
-                .replace(/<\/(?:tr|p|div|li|h[1-6])>/gi, '\n')
-                .replace(/<[^>]*>/g, ' ')
-            );
+          function matchLaunch(datasetName, launches) {
+            const target = normalize(datasetName);
+            if (!target) return null;
 
-            const lines = text
-              .split(/\n+/)
-              .map(line => line.replace(/\s+/g, ' ').trim())
-              .filter(Boolean);
+            // Primero busca coincidencias de misión completas.
+            const matches = launches
+              .map(launch => ({
+                launch,
+                name: normalize(launch.name)
+              }))
+              .filter(item =>
+                item.name &&
+                (item.name.includes(target) || target.includes(item.name))
+              )
+              .sort((a, b) => b.name.length - a.name.length);
 
-            const target = normalize(missionName);
-            let start = -1;
-
-            // Find the section corresponding to this mission.
-            for (let i = 0; i < lines.length; i++) {
-              const line = normalize(lines[i]);
-
-              if (line.includes(target) &&
-                  /pre[\s-]?launch/i.test(lines[i])) {
-                start = i;
-                break;
-              }
-            }
-
-            if (start === -1) {
-              return {};
-            }
-
-            const section = [];
-
-            for (let i = start; i < lines.length; i++) {
-              if (i > start &&
-                  /pre[\s-]?launch/i.test(lines[i]) &&
-                  !normalize(lines[i]).includes(target)) {
-                break;
-              }
-
-              section.push(lines[i]);
-
-              // Keep this bounded so another mission's details are not scanned.
-              if (section.length >= 100) break;
-            }
-
-            const sectionText = section.join('\n');
-            const schedule = {};
-
-            const launchMatch = sectionText.match(
-              /\bLaunch\s*:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s*UTC/i
-            );
-
-            const deployMatch = sectionText.match(
-              /\bDeploy\s*:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:\.\d+)?)\s*UTC/i
-            );
-
-            const windowMatch = sectionText.match(
-              /\bLaunch window\s*:\s*([^\n]+)/i
-            );
-
-            if (launchMatch) {
-              schedule.net = launchMatch[1].replace(' ', 'T') + 'Z';
-            }
-
-            if (deployMatch) {
-              schedule.deploy = deployMatch[1].replace(' ', 'T') + 'Z';
-            }
-
-            if (windowMatch) {
-              schedule.launch_window = windowMatch[1].trim();
-            }
-
-            return schedule;
+            return matches[0]?.launch || null;
           }
 
           async function run() {
-            const inputPath = 'launches/next-launches.json';
+            const outputPath = 'launches/prelaunches.json';
 
-            if (!fs.existsSync(inputPath)) {
-              throw new Error(`No se encontró ${inputPath}`);
-            }
-
+            console.log('Leyendo lanzamientos de Launch Library 2...');
             const ll2Data = JSON.parse(
-              fs.readFileSync(inputPath, 'utf8')
+              fs.readFileSync('launches/next-launches.json', 'utf8')
             );
 
             const launches = Array.isArray(ll2Data.results)
@@ -290,141 +273,178 @@ jobs:
               : [];
 
             console.log('Descargando índice de CelesTrak una sola vez...');
-
-            const indexResponse = await fetchResponse(INDEX_URL);
-            const html = await indexResponse.text();
-
+            const html = await fetchText(INDEX_URL);
+            const plainText = htmlToText(html);
             const datasets = extractDatasets(html);
 
-            const primaryDatasets = datasets.filter(
-              item => !item.isBackup &&
-                /pre[\s-]?launch/i.test(item.name)
+            console.log(
+              `Misiones principales detectadas: ${datasets.length}`
             );
 
-            const backupDatasets = datasets.filter(
-              item => item.isBackup
-            );
-
-            console.log(`Misiones principales detectadas: ${primaryDatasets.length}`);
-            console.log(`Archivos de respaldo publicados: ${backupDatasets.length}`);
-
-            const output = [];
-            const failedFiles = [];
-
-            for (const primary of primaryDatasets) {
-              const missionName = cleanMissionName(primary.name);
-              const missionFileBase = baseFileId(primary.file);
-              const matchedLL2 = matchLaunch(primary, launches);
-
-              // Group only backups belonging to this mission.
-              // Example: starlink-g15-25b1 belongs to starlink-g15-25.
-              const backups = backupDatasets
-                .filter(item =>
-                  baseFileId(item.file).toLowerCase() ===
-                  missionFileBase.toLowerCase()
-                )
-                .sort((a, b) => {
-                  const aNumber = Number((a.file.match(/b(\d+)$/i) || [])[1] || 0);
-                  const bNumber = Number((b.file.match(/b(\d+)$/i) || [])[1] || 0);
-                  return aNumber - bNumber;
-                })
-                .slice(0, MAX_BACKUPS);
-
-              console.log(
-                `\nMisión: ${missionName} | Archivo: ${primary.file}`
+            // Protección crítica: nunca borrar datos válidos por un
+            // problema de detección del HTML.
+            if (datasets.length === 0) {
+              throw new Error(
+                'No se detectaron misiones principales. ' +
+                'Se conserva el JSON anterior sin modificar.'
               );
-              console.log(
-                `Coincidencia LL2: ${matchedLL2 ? matchedLL2.name : 'ninguna'}`
-              );
-              console.log(`Respaldos publicados: ${backups.length}`);
+            }
 
-              let mainData;
+            let finalPrelaunches = [];
+            let backupCount = 0;
+            let backupFailures = 0;
 
-              try {
-                mainData = await getOrbitalData(primary.file);
-              } catch (error) {
-                console.error(
-                  `No se pudo descargar la misión principal ${primary.file}: ${error.message}`
+            for (let i = 0; i < datasets.length; i++) {
+              const dataset = datasets[i];
+              const nextDataset = datasets[i + 1];
+
+              // Aísla el bloque de texto de esta misión hasta la siguiente.
+              let start = plainText.indexOf(dataset.anchorText);
+
+              if (start === -1) {
+                start = plainText.indexOf(
+                  `${dataset.name} Pre-Launch`
                 );
-                failedFiles.push(primary.file);
-
-                // Never replace a valid mission with an entry missing orbital data.
-                continue;
               }
 
-              await sleep(REQUEST_DELAY_MS);
+              if (start === -1) {
+                throw new Error(
+                  `No se pudo ubicar la sección de ${dataset.name}. ` +
+                  'Se conserva el JSON anterior.'
+                );
+              }
 
-              const schedule = parseSchedule(html, missionName);
+              let end = nextDataset
+                ? plainText.indexOf(nextDataset.anchorText, start + 1)
+                : -1;
 
-              const entry = {
-                celestrak_name: missionName,
-                celestrak_file: primary.file,
-                is_matched_with_ll2: Boolean(matchedLL2),
-                launch_id: matchedLL2 ? matchedLL2.id : null,
-                launch_name_ll2: matchedLL2 ? matchedLL2.name : null,
+              if (end === -1) end = plainText.length;
 
-                // Prefer CelesTrak's published launch time when parsed.
-                // Fall back to LL2 only if the CelesTrak time is unavailable.
-                net: schedule.net || (matchedLL2 ? matchedLL2.net : null),
+              const section = plainText.slice(start, end);
+              const firstBackupIndex = section.search(
+                /Backup Launch Opportunity\s*#\s*\d+/i
+              );
 
-                launch_window: schedule.launch_window || null,
-                deploy: schedule.deploy || null,
+              const mainSection = firstBackupIndex >= 0
+                ? section.slice(0, firstBackupIndex)
+                : section;
 
-                data: mainData,
-                backups: []
-              };
+              const schedule = parseSchedule(mainSection);
+              const matchedLL2 = matchLaunch(dataset.name, launches);
 
-              for (const backup of backups) {
+              console.log(
+                `Procesando ${dataset.name} | FILE=${dataset.fileId} | ` +
+                `LL2=${matchedLL2 ? matchedLL2.name : 'sin coincidencia'}`
+              );
+
+              // La misión principal es obligatoria. Si falla, no se
+              // publica una actualización parcial que pueda perder datos.
+              const mainData = await fetchDataset(dataset.fileId);
+
+              const backups = [];
+              const backupRegex =
+                /Backup Launch Opportunity\s*#\s*(\d+)/gi;
+
+              const backupMatches = [...section.matchAll(backupRegex)]
+                .map(match => ({
+                  number: Number(match[1]),
+                  index: match.index
+                }))
+                .filter(item =>
+                  item.number >= 1 &&
+                  item.number <= MAX_BACKUPS
+                );
+
+              console.log(
+                `  Respaldos publicados: ${backupMatches.length}`
+              );
+
+              for (let b = 0; b < backupMatches.length; b++) {
+                const backup = backupMatches[b];
+                const nextBackup = backupMatches[b + 1];
+
+                const backupSection = section.slice(
+                  backup.index,
+                  nextBackup ? nextBackup.index : section.length
+                );
+
+                const backupFileId =
+                  `${dataset.fileId}b${backup.number}`;
+
                 try {
-                  const backupData = await getOrbitalData(backup.file);
+                  const backupData = await fetchDataset(backupFileId);
+                  const backupSchedule = parseSchedule(backupSection);
 
-                  const numberMatch = backup.file.match(/b(\d+)$/i);
-                  const opportunity = numberMatch
-                    ? Number(numberMatch[1])
-                    : entry.backups.length + 1;
-
-                  entry.backups.push({
-                    opportunity,
-                    celestrak_name: cleanMissionName(backup.name),
-                    celestrak_file: backup.file,
+                  backups.push({
+                    backup_number: backup.number,
+                    celestrak_name:
+                      `${dataset.name} - Backup #${backup.number}`,
+                    celestrak_file: backupFileId,
+                    launch: backupSchedule.launch,
+                    deploy: backupSchedule.deploy,
+                    launch_window: backupSchedule.launch_window,
                     data: backupData
                   });
 
+                  backupCount++;
+
                   console.log(
-                    `  Respaldo ${opportunity} OK: ${backup.file} ` +
-                    `(${backupData.length} objeto(s))`
+                    `    OK ${backupFileId}` +
+                    (backupSchedule.launch
+                      ? ` | Launch: ${backupSchedule.launch}`
+                      : '')
                   );
                 } catch (error) {
-                  console.warn(
-                    `  Se omite el respaldo ${backup.file}: ${error.message}`
-                  );
-                  failedFiles.push(backup.file);
-                }
+                  backupFailures++;
 
-                await sleep(REQUEST_DELAY_MS);
+                  console.warn(
+                    `    Respaldo omitido ${backupFileId}: ${error.message}`
+                  );
+                }
               }
 
-              output.push(entry);
+              finalPrelaunches.push({
+                celestrak_name: dataset.name,
+                celestrak_file: dataset.fileId,
+                is_matched_with_ll2: !!matchedLL2,
+                launch_id: matchedLL2 ? matchedLL2.id : null,
+                launch_name_ll2: matchedLL2 ? matchedLL2.name : null,
+
+                // Horario real publicado por CelesTrak, con LL2 como respaldo.
+                net: schedule.launch || (matchedLL2 ? matchedLL2.net : null),
+
+                launch: schedule.launch,
+                deploy: schedule.deploy,
+                launch_window: schedule.launch_window,
+
+                data: mainData,
+                backups
+              });
+            }
+
+            if (finalPrelaunches.length === 0) {
+              throw new Error(
+                'No se generaron misiones. Se conserva el JSON anterior.'
+              );
             }
 
             fs.mkdirSync('launches', { recursive: true });
 
-            fs.writeFileSync(
-              'launches/prelaunches.json',
-              JSON.stringify(output, null, 2) + '\n'
-            );
+            const newContent =
+              JSON.stringify(finalPrelaunches, null, 2) + '\n';
 
-            console.log('\n========================================');
-            console.log(`Misiones guardadas: ${output.length}`);
-            console.log(`Archivos que fallaron: ${failedFiles.length}`);
+            // Escribir solo después de completar todas las misiones principales.
+            fs.writeFileSync(outputPath, newContent);
 
-            if (failedFiles.length) {
-              console.warn(`Fallidos: ${failedFiles.join(', ')}`);
-            }
+            console.log('----------------------------------------');
+            console.log(`Misiones guardadas: ${finalPrelaunches.length}`);
+            console.log(`Respaldos guardados: ${backupCount}`);
+            console.log(`Respaldos fallidos: ${backupFailures}`);
+            console.log(`Archivo actualizado: ${outputPath}`);
           }
 
           run().catch(error => {
-            console.error('Error fatal:', error);
+            console.error('ERROR FATAL:', error.message);
             process.exit(1);
           });
           EOF
@@ -433,8 +453,8 @@ jobs:
 
       - name: Commit cambios
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
 
           git add launches/prelaunches.json
 
