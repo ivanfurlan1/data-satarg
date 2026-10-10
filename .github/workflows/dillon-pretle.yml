@@ -65,29 +65,17 @@ jobs:
             let currentMission = null;
             let currentLaunch = null;
 
-            const isTle1 = line =>
-              /^1\s+\d{5}[A-Z]\s+/.test(line);
-
-            const isTle2 = line =>
-              /^2\s+\d{5}\s+/.test(line);
-
-            const hasTimestamp = line =>
-              /\s+\d{6}\.\d{2}$/.test(line);
+            const isTle1 = line => /^1\s+\d{5}[A-Z]\s+/.test(line);
+            const isTle2 = line => /^2\s+\d{5}\s+/.test(line);
+            const hasTimestamp = line => /\s+\d{6}\.\d{2}$/.test(line);
 
             const cleanName = line =>
               line.replace(/\s+\d{6}\.\d{2}$/, '').trim();
 
-            const isHeading = line =>
-              /^TOTAL MISSIONS:/i.test(line) ||
-              /^PRETLE PAGE$/i.test(line) ||
-              /^HERE YOU WILL FIND/i.test(line) ||
-              /^\*STARLINK GP DATA/i.test(line) ||
-              /^\d{4}$/.test(line) ||
-              /^CSV$/i.test(line);
-
             for (let i = 0; i < lines.length; i++) {
               const line = lines[i];
 
+              // Detect the two main sections.
               if (/^UPCOMING MISSIONS$/i.test(line)) {
                 section = 'upcoming';
                 currentMission = null;
@@ -102,9 +90,7 @@ jobs:
                 continue;
               }
 
-              if (!section || isHeading(line)) {
-                continue;
-              }
+              if (!section) continue;
 
               // Upcoming mission heading followed by NET.
               if (
@@ -125,7 +111,7 @@ jobs:
                 continue;
               }
 
-              // NET date on a separate line.
+              // NET label with the date on the next line.
               if (
                 section === 'upcoming' &&
                 /^NET:\s*$/i.test(line)
@@ -135,65 +121,60 @@ jobs:
                 continue;
               }
 
-              // In PREVIOUS MISSIONS, a line without a timestamp
-              // is a mission heading. Object names have timestamps.
+              // In previous missions, headings have no timestamp.
+              // Object names immediately before TLEs have a timestamp.
               if (
                 section === 'previous' &&
                 !hasTimestamp(line) &&
-                !/^NET:/i.test(line)
+                !isTle1(line) &&
+                !isTle2(line) &&
+                !/^CSV$/i.test(line) &&
+                !/^NET:/i.test(line) &&
+                !/^TOTAL MISSIONS:/i.test(line) &&
+                !/^PRETLE PAGE$/i.test(line) &&
+                !/^HERE YOU WILL FIND/i.test(line) &&
+                !/^\*STARLINK GP DATA/i.test(line) &&
+                !/^\d{4}$/.test(line)
               ) {
                 currentMission = line;
                 currentLaunch = null;
                 continue;
               }
 
-              // Keep the original TLE extraction behavior.
-              if (
-                isTle1(line) &&
-                i + 1 < lines.length &&
-                isTle2(lines[i + 1])
-              ) {
+              // Original TLE extraction logic.
+              if (isTle1(line)) {
                 const tle1 = line;
                 const tle2 = lines[i + 1];
 
-                const rawName = lines[i - 1] || '';
-                let name = cleanName(rawName);
+                if (tle2 && isTle2(tle2)) {
+                  let name = cleanName(lines[i - 1] || '');
 
-                if (
-                  !name ||
-                  /^CSV$/i.test(name) ||
-                  /^NET:/i.test(name) ||
-                  isTle1(name) ||
-                  isTle2(name)
-                ) {
-                  name = currentMission || 'Unknown';
-                }
+                  if (
+                    !name ||
+                    name === 'CSV' ||
+                    /^NET:/i.test(name)
+                  ) {
+                    name = currentMission || 'Unknown';
+                  }
 
-                if (currentMission) {
                   missions.push({
-                    mission: currentMission,
-                    launch: section === 'upcoming'
-                      ? currentLaunch
-                      : null,
+                    mission: currentMission || name,
+                    launch: section === 'upcoming' ? currentLaunch : null,
                     name,
                     tle1,
                     tle2
                   });
-                }
 
-                i++;
+                  i++;
+                }
               }
             }
 
             if (missions.length === 0) {
-              throw new Error(
-                'No TLE entries found. Existing JSON was not overwritten.'
-              );
+              throw new Error('No TLE entries found. Existing JSON was not overwritten.');
             }
 
-            fs.mkdirSync('launches', {
-              recursive: true
-            });
+            fs.mkdirSync('launches', { recursive: true });
 
             const output = {
               source: 'Dillon Space Page',
@@ -207,27 +188,9 @@ jobs:
               JSON.stringify(output, null, 2) + '\n'
             );
 
-            const upcoming = missions.filter(
-              item => item.launch !== null
-            ).length;
-
-            const previous = missions.filter(
-              item => item.launch === null
-            ).length;
-
             console.log(`Saved ${missions.length} TLE entries.`);
-            console.log(`Upcoming TLE entries: ${upcoming}`);
-            console.log(`Previous TLE entries: ${previous}`);
-
-            console.log('Mission summary:');
-            for (const [mission, count] of Object.entries(
-              missions.reduce((counts, item) => {
-                counts[item.mission] = (counts[item.mission] || 0) + 1;
-                return counts;
-              }, {})
-            )) {
-              console.log(`- ${mission}: ${count}`);
-            }
+            console.log(`Upcoming entries: ${missions.filter(m => m.launch !== null).length}`);
+            console.log(`Previous entries: ${missions.filter(m => m.launch === null).length}`);
           })().catch(error => {
             console.error(error);
             process.exit(1);
