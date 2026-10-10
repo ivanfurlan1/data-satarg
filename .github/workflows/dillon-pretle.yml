@@ -37,6 +37,8 @@ jobs:
               headless: true
             });
 
+            let text;
+
             try {
               const page = await browser.newPage();
 
@@ -47,175 +49,184 @@ jobs:
 
               await page.waitForTimeout(5000);
 
-              const text = await page.locator('body').innerText();
-
-              const lines = text
-                .split(/\r?\n/)
-                .map(line => line.replace(/\s+/g, ' ').trim())
-                .filter(Boolean);
-
-              const missions = [];
-
-              let section = null;
-              let currentMission = null;
-              let currentLaunch = null;
-
-              const isTle1 = line =>
-                /^1\s+\d{5}[A-Z]\s+/.test(line);
-
-              const isTle2 = line =>
-                /^2\s+\d{5}\s+/.test(line);
-
-              const hasTimestamp = line =>
-                /\s+\d{6}\.\d{2}$/.test(line);
-
-              const cleanName = line =>
-                line.replace(/\s+\d{6}\.\d{2}$/, '').trim();
-
-              const isPageHeading = line =>
-                /^TOTAL MISSIONS:/i.test(line) ||
-                /^PRETLE PAGE$/i.test(line) ||
-                /^HERE YOU WILL FIND/i.test(line) ||
-                /^\*STARLINK GP DATA/i.test(line) ||
-                /^\d{4}$/.test(line) ||
-                /^CSV$/i.test(line);
-
-              for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-
-                // Identify which section of Dillon's page we are in.
-                if (/^UPCOMING MISSIONS$/i.test(line)) {
-                  section = 'upcoming';
-                  currentMission = null;
-                  currentLaunch = null;
-                  continue;
-                }
-
-                if (/^PREVIOUS MISSIONS$/i.test(line)) {
-                  section = 'previous';
-                  currentMission = null;
-                  currentLaunch = null;
-                  continue;
-                }
-
-                if (!section || isPageHeading(line)) {
-                  continue;
-                }
-
-                // Upcoming mission heading followed by its NET date.
-                if (
-                  section === 'upcoming' &&
-                  i + 1 < lines.length &&
-                  /^NET:/i.test(lines[i + 1])
-                ) {
-                  currentMission = line;
-                  currentLaunch = lines[i + 1]
-                    .replace(/^NET:\s*/i, '')
-                    .trim();
-
-                  // Also support NET: with the date on the following line.
-                  if (!currentLaunch && i + 2 < lines.length) {
-                    currentLaunch = lines[i + 2];
-                  }
-
-                  i++;
-                  continue;
-                }
-
-                // Support a NET label whose date is on a separate line.
-                if (
-                  section === 'upcoming' &&
-                  /^NET:\s*$/i.test(line)
-                ) {
-                  currentLaunch = lines[i + 1] || null;
-                  if (currentLaunch) i++;
-                  continue;
-                }
-
-                // Historical headings have no NET date.
-                // Individual TLE object names end with a compact timestamp.
-                if (
-                  section === 'previous' &&
-                  !hasTimestamp(line) &&
-                  !/^NET:/i.test(line)
-                ) {
-                  currentMission = line;
-                  currentLaunch = null;
-                  continue;
-                }
-
-                // Extract the two lines of each TLE.
-                if (isTle1(line) && i + 1 < lines.length && isTle2(lines[i + 1])) {
-                  const tle1 = line;
-                  const tle2 = lines[i + 1];
-
-                  const rawName = lines[i - 1] || '';
-                  let name = cleanName(rawName);
-
-                  if (
-                    !name ||
-                    /^CSV$/i.test(name) ||
-                    /^NET:/i.test(name) ||
-                    isTle1(name) ||
-                    isTle2(name)
-                  ) {
-                    name = currentMission || 'Unknown';
-                  }
-
-                  if (currentMission) {
-                    missions.push({
-                      mission: currentMission,
-                      launch: section === 'upcoming' ? currentLaunch : null,
-                      name,
-                      tle1,
-                      tle2
-                    });
-                  }
-
-                  i++;
-                }
-              }
-
-              if (missions.length === 0) {
-                throw new Error(
-                  'No TLE entries found. Existing JSON was not overwritten.'
-                );
-              }
-
-              fs.mkdirSync('launches', {
-                recursive: true
-              });
-
-              const output = {
-                source: 'Dillon Space Page',
-                sourceUrl: 'https://dillonsspacepage.com/pretle',
-                updatedAt: new Date().toISOString(),
-                missions
-              };
-
-              fs.writeFileSync(
-                'launches/dillon-pretle.json',
-                JSON.stringify(output, null, 2) + '\n'
-              );
-
-              const upcomingCount = missions.filter(
-                item => item.launch !== null
-              ).length;
-
-              const previousCount = missions.filter(
-                item => item.launch === null
-              ).length;
-
-              console.log(`Saved ${missions.length} TLE entries.`);
-              console.log(`Upcoming entries: ${upcomingCount}`);
-              console.log(`Previous entries: ${previousCount}`);
-
-              console.log('Mission counts:', missions.reduce((counts, item) => {
-                counts[item.mission] = (counts[item.mission] || 0) + 1;
-                return counts;
-              }, {}));
+              text = await page.locator('body').innerText();
             } finally {
               await browser.close();
+            }
+
+            const lines = text
+              .split(/\r?\n/)
+              .map(line => line.trim())
+              .filter(Boolean);
+
+            const missions = [];
+
+            let section = null;
+            let currentMission = null;
+            let currentLaunch = null;
+
+            const isTle1 = line =>
+              /^1\s+\d{5}[A-Z]\s+/.test(line);
+
+            const isTle2 = line =>
+              /^2\s+\d{5}\s+/.test(line);
+
+            const hasTimestamp = line =>
+              /\s+\d{6}\.\d{2}$/.test(line);
+
+            const cleanName = line =>
+              line.replace(/\s+\d{6}\.\d{2}$/, '').trim();
+
+            const isHeading = line =>
+              /^TOTAL MISSIONS:/i.test(line) ||
+              /^PRETLE PAGE$/i.test(line) ||
+              /^HERE YOU WILL FIND/i.test(line) ||
+              /^\*STARLINK GP DATA/i.test(line) ||
+              /^\d{4}$/.test(line) ||
+              /^CSV$/i.test(line);
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+
+              if (/^UPCOMING MISSIONS$/i.test(line)) {
+                section = 'upcoming';
+                currentMission = null;
+                currentLaunch = null;
+                continue;
+              }
+
+              if (/^PREVIOUS MISSIONS$/i.test(line)) {
+                section = 'previous';
+                currentMission = null;
+                currentLaunch = null;
+                continue;
+              }
+
+              if (!section || isHeading(line)) {
+                continue;
+              }
+
+              // Upcoming mission heading followed by NET.
+              if (
+                section === 'upcoming' &&
+                i + 1 < lines.length &&
+                /^NET:/i.test(lines[i + 1])
+              ) {
+                currentMission = line;
+                currentLaunch = lines[i + 1]
+                  .replace(/^NET:\s*/i, '')
+                  .trim();
+
+                if (!currentLaunch && i + 2 < lines.length) {
+                  currentLaunch = lines[i + 2];
+                }
+
+                i++;
+                continue;
+              }
+
+              // NET date on a separate line.
+              if (
+                section === 'upcoming' &&
+                /^NET:\s*$/i.test(line)
+              ) {
+                currentLaunch = lines[i + 1] || null;
+                if (currentLaunch) i++;
+                continue;
+              }
+
+              // In PREVIOUS MISSIONS, a line without a timestamp
+              // is a mission heading. Object names have timestamps.
+              if (
+                section === 'previous' &&
+                !hasTimestamp(line) &&
+                !/^NET:/i.test(line)
+              ) {
+                currentMission = line;
+                currentLaunch = null;
+                continue;
+              }
+
+              // Keep the original TLE extraction behavior.
+              if (
+                isTle1(line) &&
+                i + 1 < lines.length &&
+                isTle2(lines[i + 1])
+              ) {
+                const tle1 = line;
+                const tle2 = lines[i + 1];
+
+                const rawName = lines[i - 1] || '';
+                let name = cleanName(rawName);
+
+                if (
+                  !name ||
+                  /^CSV$/i.test(name) ||
+                  /^NET:/i.test(name) ||
+                  isTle1(name) ||
+                  isTle2(name)
+                ) {
+                  name = currentMission || 'Unknown';
+                }
+
+                if (currentMission) {
+                  missions.push({
+                    mission: currentMission,
+                    launch: section === 'upcoming'
+                      ? currentLaunch
+                      : null,
+                    name,
+                    tle1,
+                    tle2
+                  });
+                }
+
+                i++;
+              }
+            }
+
+            if (missions.length === 0) {
+              throw new Error(
+                'No TLE entries found. Existing JSON was not overwritten.'
+              );
+            }
+
+            fs.mkdirSync('launches', {
+              recursive: true
+            });
+
+            const output = {
+              source: 'Dillon Space Page',
+              sourceUrl: 'https://dillonsspacepage.com/pretle',
+              updatedAt: new Date().toISOString(),
+              missions
+            };
+
+            fs.writeFileSync(
+              'launches/dillon-pretle.json',
+              JSON.stringify(output, null, 2) + '\n'
+            );
+
+            const upcoming = missions.filter(
+              item => item.launch !== null
+            ).length;
+
+            const previous = missions.filter(
+              item => item.launch === null
+            ).length;
+
+            console.log(`Saved ${missions.length} TLE entries.`);
+            console.log(`Upcoming TLE entries: ${upcoming}`);
+            console.log(`Previous TLE entries: ${previous}`);
+
+            console.log('Mission summary:');
+            for (const [mission, count] of Object.entries(
+              missions.reduce((counts, item) => {
+                counts[item.mission] = (counts[item.mission] || 0) + 1;
+                return counts;
+              }, {})
+            )) {
+              console.log(`- ${mission}: ${count}`);
             }
           })().catch(error => {
             console.error(error);
