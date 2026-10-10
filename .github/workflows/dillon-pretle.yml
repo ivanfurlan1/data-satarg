@@ -1,3 +1,4 @@
+
 name: Update Dillon PreTLE
 
 on:
@@ -36,153 +37,186 @@ jobs:
               headless: true
             });
 
-            const page = await browser.newPage();
+            try {
+              const page = await browser.newPage();
 
-            await page.goto('https://dillonsspacepage.com/pretle', {
-              waitUntil: 'domcontentloaded',
-              timeout: 60000
-            });
+              await page.goto('https://dillonsspacepage.com/pretle', {
+                waitUntil: 'domcontentloaded',
+                timeout: 60000
+              });
 
-            await page.waitForTimeout(5000);
+              await page.waitForTimeout(5000);
 
-            const text = await page.locator('body').innerText();
+              const text = await page.locator('body').innerText();
 
-            await browser.close();
+              const lines = text
+                .split(/\r?\n/)
+                .map(line => line.replace(/\s+/g, ' ').trim())
+                .filter(Boolean);
 
-            const lines = text
-              .split('\n')
-              .map(line => line.trim())
-              .filter(Boolean);
+              const missions = [];
 
-            const missions = [];
+              let section = null;
+              let currentMission = null;
+              let currentLaunch = null;
 
-            let currentMission = null;
-            let currentLaunch = null;
+              const isTle1 = line =>
+                /^1\s+\d{5}[A-Z]\s+/.test(line);
 
-            for (let i = 0; i < lines.length; i++) {
+              const isTle2 = line =>
+                /^2\s+\d{5}\s+/.test(line);
 
-              const line = lines[i];
+              const hasTimestamp = line =>
+                /\s+\d{6}\.\d{2}$/.test(line);
 
-              /*
-               * Dillon devuelve:
-               *
-               * Crew-13
-               * NET: Oct 01 2026 15:10:06 UTC
-               */
+              const cleanName = line =>
+                line.replace(/\s+\d{6}\.\d{2}$/, '').trim();
 
-              if (line === 'NET:' || line.startsWith('NET:')) {
+              const isPageHeading = line =>
+                /^TOTAL MISSIONS:/i.test(line) ||
+                /^PRETLE PAGE$/i.test(line) ||
+                /^HERE YOU WILL FIND/i.test(line) ||
+                /^\*STARLINK GP DATA/i.test(line) ||
+                /^\d{4}$/.test(line) ||
+                /^CSV$/i.test(line);
 
-                if (line.startsWith('NET:')) {
-                  currentLaunch = line
-                    .replace(/^NET:\s*/i, '')
-                    .trim();
-                } else {
-                  const nextLine = lines[i + 1];
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
 
-                  if (nextLine && /^NET:\s*/i.test(nextLine)) {
-                    currentLaunch = nextLine
-                      .replace(/^NET:\s*/i, '')
-                      .trim();
-
-                    i++;
-                  }
+                // Identify which section of Dillon's page we are in.
+                if (/^UPCOMING MISSIONS$/i.test(line)) {
+                  section = 'upcoming';
+                  currentMission = null;
+                  currentLaunch = null;
+                  continue;
                 }
 
-                continue;
-              }
+                if (/^PREVIOUS MISSIONS$/i.test(line)) {
+                  section = 'previous';
+                  currentMission = null;
+                  currentLaunch = null;
+                  continue;
+                }
 
-              /*
-               * Detectamos la línea que contiene
-               * el nombre de la misión antes de NET.
-               */
+                if (!section || isPageHeading(line)) {
+                  continue;
+                }
 
-              if (
-                i + 1 < lines.length &&
-                /^NET:\s*/i.test(lines[i + 1])
-              ) {
-                currentMission = line.trim();
-
-                currentLaunch = lines[i + 1]
-                  .replace(/^NET:\s*/i, '')
-                  .trim();
-
-                i++;
-
-                continue;
-              }
-
-              /*
-               * Detectamos TLE line 1.
-               */
-
-              if (/^1\s+\d{5}[A-Z]\s+/.test(line)) {
-
-                const tle1 = line;
-                const tle2 = lines[i + 1];
-
-                if (tle2 && /^2\s+\d{5}\s+/.test(tle2)) {
-
-                  /*
-                   * El nombre está justo antes del TLE.
-                   *
-                   * Ejemplo:
-                   *
-                   * Crew-13 011510.06
-                   */
-
-                  let name = lines[i - 1] || '';
-
-                  /*
-                   * Elimina la hora compacta.
-                   */
-
-                  name = name
-                    .replace(/\s+\d{6}\.\d{2}$/, '')
+                // Upcoming mission heading followed by its NET date.
+                if (
+                  section === 'upcoming' &&
+                  i + 1 < lines.length &&
+                  /^NET:/i.test(lines[i + 1])
+                ) {
+                  currentMission = line;
+                  currentLaunch = lines[i + 1]
+                    .replace(/^NET:\s*/i, '')
                     .trim();
 
-                  /*
-                   * Evitamos tomar textos como CSV
-                   * como nombre.
-                   */
+                  // Also support NET: with the date on the following line.
+                  if (!currentLaunch && i + 2 < lines.length) {
+                    currentLaunch = lines[i + 2];
+                  }
+
+                  i++;
+                  continue;
+                }
+
+                // Support a NET label whose date is on a separate line.
+                if (
+                  section === 'upcoming' &&
+                  /^NET:\s*$/i.test(line)
+                ) {
+                  currentLaunch = lines[i + 1] || null;
+                  if (currentLaunch) i++;
+                  continue;
+                }
+
+                // Historical headings have no NET date.
+                // Individual TLE object names end with a compact timestamp.
+                if (
+                  section === 'previous' &&
+                  !hasTimestamp(line) &&
+                  !/^NET:/i.test(line)
+                ) {
+                  currentMission = line;
+                  currentLaunch = null;
+                  continue;
+                }
+
+                // Extract the two lines of each TLE.
+                if (isTle1(line) && i + 1 < lines.length && isTle2(lines[i + 1])) {
+                  const tle1 = line;
+                  const tle2 = lines[i + 1];
+
+                  const rawName = lines[i - 1] || '';
+                  let name = cleanName(rawName);
 
                   if (
                     !name ||
-                    name === 'CSV' ||
-                    /^NET:/i.test(name)
+                    /^CSV$/i.test(name) ||
+                    /^NET:/i.test(name) ||
+                    isTle1(name) ||
+                    isTle2(name)
                   ) {
                     name = currentMission || 'Unknown';
                   }
 
-                  missions.push({
-                    mission: currentMission,
-                    launch: currentLaunch,
-                    name: name,
-                    tle1: tle1,
-                    tle2: tle2
-                  });
+                  if (currentMission) {
+                    missions.push({
+                      mission: currentMission,
+                      launch: section === 'upcoming' ? currentLaunch : null,
+                      name,
+                      tle1,
+                      tle2
+                    });
+                  }
 
                   i++;
                 }
               }
+
+              if (missions.length === 0) {
+                throw new Error(
+                  'No TLE entries found. Existing JSON was not overwritten.'
+                );
+              }
+
+              fs.mkdirSync('launches', {
+                recursive: true
+              });
+
+              const output = {
+                source: 'Dillon Space Page',
+                sourceUrl: 'https://dillonsspacepage.com/pretle',
+                updatedAt: new Date().toISOString(),
+                missions
+              };
+
+              fs.writeFileSync(
+                'launches/dillon-pretle.json',
+                JSON.stringify(output, null, 2) + '\n'
+              );
+
+              const upcomingCount = missions.filter(
+                item => item.launch !== null
+              ).length;
+
+              const previousCount = missions.filter(
+                item => item.launch === null
+              ).length;
+
+              console.log(`Saved ${missions.length} TLE entries.`);
+              console.log(`Upcoming entries: ${upcomingCount}`);
+              console.log(`Previous entries: ${previousCount}`);
+
+              console.log('Mission counts:', missions.reduce((counts, item) => {
+                counts[item.mission] = (counts[item.mission] || 0) + 1;
+                return counts;
+              }, {}));
+            } finally {
+              await browser.close();
             }
-
-            fs.mkdirSync('launches', {
-              recursive: true
-            });
-
-            const output = {
-              source: 'Dillon Space Page',
-              sourceUrl: 'https://dillonsspacepage.com/pretle',
-              updatedAt: new Date().toISOString(),
-              missions
-            };
-
-            fs.writeFileSync(
-              'launches/dillon-pretle.json',
-              JSON.stringify(output, null, 2) + '\n'
-            );
-
-            console.log(`Saved ${missions.length} TLE entries.`);
           })().catch(error => {
             console.error(error);
             process.exit(1);
