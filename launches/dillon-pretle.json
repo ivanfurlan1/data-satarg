@@ -1,18 +1,18 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-10T07:31:08.436Z",
+  "updatedAt": "2026-10-10T08:01:28.788Z",
   "missions": [
     {
       "mission": "SDA Tranche 1 Transport Layer A",
-      "launch": "Oct 10 2026 07:39:44 UTC",
+      "launch": null,
       "name": "Tranche 1 Transport Layer A PO",
       "tle1": "1 70213U 26231A   26283.32574074  .00000000  00000-0  00000-0 0  9990",
       "tle2": "2 70213  81.0651 201.0567 0564016 158.1600 001.1000 15.04647600    05"
     },
     {
       "mission": "SDA Tranche 1 Transport Layer A",
-      "launch": "Oct 10 2026 07:39:44 UTC",
+      "launch": null,
       "name": "Tranche 1 Transport Layer A",
       "tle1": "1 70213U 26231A   26283.35877315  .00000000  00000-0  00000-0 0  9997",
       "tle2": "2 70213  81.0651 201.0536 0003413 338.2401 000.0000 13.85060346    01"
