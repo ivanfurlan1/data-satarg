@@ -1,11 +1,11 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-13T09:35:26.291Z",
+  "updatedAt": "2026-10-13T10:33:50.595Z",
   "missions": [
     {
       "mission": "Dragon CRS-2 SpX-35",
-      "launch": "Oct 13 2026 10:33:44 UTC",
+      "launch": null,
       "name": "Dragon CRS-2 SpX-35",
       "tle1": "1 70215U 26233A   26286.44619213  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70215  51.6406 075.9359 0027809 034.3000 013.6000 16.22852685    08"
