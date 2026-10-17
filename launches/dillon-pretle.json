@@ -1,8 +1,29 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-17T22:31:21.084Z",
+  "updatedAt": "2026-10-17T23:01:19.220Z",
   "missions": [
+    {
+      "mission": "Bandwagon 5",
+      "launch": "Oct 19 2026 10:30:00 UTC",
+      "name": "Bandwagon 5 PO",
+      "tle1": "1 70218U 26236A   26292.44325231  .00000000  00000-0  00000-0 0  9992",
+      "tle2": "2 70218  45.4077 320.5483 0253092 143.0380 005.6000 15.76602199    09"
+    },
+    {
+      "mission": "Bandwagon 5",
+      "launch": "Oct 19 2026 10:30:00 UTC",
+      "name": "Bandwagon 5",
+      "tle1": "1 70218U 26236A   26292.47488426  .00000000  00000-0  00000-0 0  9991",
+      "tle2": "2 70218  45.4077 320.5357 0005858 142.8077 185.1358 15.19922109    07"
+    },
+    {
+      "mission": "Bandwagon 5",
+      "launch": "Oct 19 2026 10:30:00 UTC",
+      "name": "Starfall Deploy",
+      "tle1": "1 70218U 26236A   26292.53953704  .00000000  00000-0  00000-0 0  9994",
+      "tle2": "2 70218  52.7126 313.2331 0368334 160.4082 165.2000 16.01165216    00"
+    },
     {
       "mission": "USSF-481",
       "launch": null,
