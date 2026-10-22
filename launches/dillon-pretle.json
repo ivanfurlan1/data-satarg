@@ -1,15 +1,8 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-22T22:30:55.085Z",
+  "updatedAt": "2026-10-22T23:00:56.905Z",
   "missions": [
-    {
-      "mission": "Starlink 15-15",
-      "launch": "Oct 22 2026 22:51:18 UTC",
-      "name": "Starlink 15-15",
-      "tle1": "1 70221U 26239A   26295.99552083  .00000000  00000-0  00000-0 0  9999",
-      "tle2": "2 70221  70.0070 089.6492 0009517 261.8911 112.7400 16.05876715    07"
-    },
     {
       "mission": "We're Not Hawking Around",
       "launch": "Oct 23 2026 07:00:00 UTC",
@@ -23,6 +16,13 @@
       "name": "We're Not Hawking Around",
       "tle1": "1 70222U 26240A   26296.32658565  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70222  97.7239 142.4116 0010142 214.1326 180.1981 15.15184299    01"
+    },
+    {
+      "mission": "Starlink 15-15",
+      "launch": null,
+      "name": "Starlink 15-15",
+      "tle1": "1 70221U 26239A   26295.99552083  .00000000  00000-0  00000-0 0  9999",
+      "tle2": "2 70221  70.0070 089.6492 0009517 261.8911 112.7400 16.05876715    07"
     },
     {
       "mission": "Unknown Payload",
