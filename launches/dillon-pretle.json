@@ -1,11 +1,11 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-10-23T22:31:27.872Z",
+  "updatedAt": "2026-10-23T23:01:17.177Z",
   "missions": [
     {
       "mission": "Starlink 15-15",
-      "launch": "Oct 23 2026 22:48:44 UTC",
+      "launch": null,
       "name": "Starlink 15-15",
       "tle1": "1 70223U 26242A   26296.99373843  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70223  70.0070 089.9914 0009517 261.8911 112.7400 16.05876715    01"
