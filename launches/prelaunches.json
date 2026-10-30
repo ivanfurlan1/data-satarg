@@ -5,33 +5,33 @@
     "is_matched_with_ll2": true,
     "launch_id": "57ce0a39-d035-4f16-a418-bd6108f78199",
     "launch_name_ll2": "Falcon 9 Block 5 | Starlink Group 15-18",
-    "net": "2026-10-31T03:48:00.000Z",
-    "launch": "2026-10-31T03:48:00.000Z",
-    "deploy": "2026-10-31T04:51:14.300Z",
+    "net": "2026-10-31T04:02:22.000Z",
+    "launch": "2026-10-31T04:02:22.000Z",
+    "deploy": "2026-10-31T05:05:36.300Z",
     "launch_window": {
-      "start": "2026-10-31T03:48:00.000Z",
-      "end": "2026-10-31T03:56:36.000Z"
+      "start": "2026-10-31T04:02:22.000Z",
+      "end": "2026-10-31T04:02:23.000Z"
     },
     "data": [
       {
         "OBJECT_NAME": "STARLINK-G15-18 SINGLE",
-        "OBJECT_ID": "2026-245B",
-        "EPOCH": "2026-10-31T04:51:14.300035",
-        "MEAN_MOTION": 16.05671531,
-        "ECCENTRICITY": 0.0011324,
+        "OBJECT_ID": "2026-246B",
+        "EPOCH": "2026-10-31T05:05:36.299962",
+        "MEAN_MOTION": 16.05683818,
+        "ECCENTRICITY": 0.0011335,
         "INCLINATION": 70.0038,
-        "RA_OF_ASC_NODE": 172.0052,
-        "ARG_OF_PERICENTER": 277.3509,
-        "MEAN_ANOMALY": 101.2044,
+        "RA_OF_ASC_NODE": 175.6067,
+        "ARG_OF_PERICENTER": 277.2518,
+        "MEAN_ANOMALY": 101.3024,
         "EPHEMERIS_TYPE": 0,
         "CLASSIFICATION_TYPE": "C",
         "NORAD_CAT_ID": 72001,
         "ELEMENT_SET_NO": 0,
         "REV_AT_EPOCH": 1,
-        "BSTAR": 0.0013872,
-        "MEAN_MOTION_DOT": 0.01025,
+        "BSTAR": 0.0014461,
+        "MEAN_MOTION_DOT": 0.010704,
         "MEAN_MOTION_DDOT": 0,
-        "RMS": "0.095",
+        "RMS": "0.096",
         "DATA_SOURCE": "SpaceX-SV"
       }
     ],
@@ -40,30 +40,30 @@
         "backup_number": 1,
         "celestrak_name": "Starlink G15-18 - Backup #1",
         "celestrak_file": "starlink-g15-18b1",
-        "launch": "2026-10-31T03:56:37.000Z",
-        "deploy": "2026-10-31T04:59:51.300Z",
+        "launch": "2026-10-31T04:02:32.000Z",
+        "deploy": "2026-10-31T05:05:46.300Z",
         "launch_window": {
-          "start": "2026-10-31T03:56:37.000Z",
-          "end": "2026-10-31T04:13:00.000Z"
+          "start": "2026-10-31T04:02:32.000Z",
+          "end": "2026-10-31T04:03:02.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B1 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T04:59:51.300010",
-            "MEAN_MOTION": 16.0567243,
-            "ECCENTRICITY": 0.0011329,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:05:46.299984",
+            "MEAN_MOTION": 16.05683837,
+            "ECCENTRICITY": 0.0011335,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 174.1652,
-            "ARG_OF_PERICENTER": 277.3035,
-            "MEAN_ANOMALY": 101.2516,
+            "RA_OF_ASC_NODE": 175.6485,
+            "ARG_OF_PERICENTER": 277.2505,
+            "MEAN_ANOMALY": 101.3037,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.0013933,
-            "MEAN_MOTION_DOT": 0.010297,
+            "BSTAR": 0.0014462,
+            "MEAN_MOTION_DOT": 0.010705,
             "MEAN_MOTION_DDOT": 0,
             "RMS": "0.096",
             "DATA_SOURCE": "SpaceX-SV"
@@ -74,32 +74,32 @@
         "backup_number": 2,
         "celestrak_name": "Starlink G15-18 - Backup #2",
         "celestrak_file": "starlink-g15-18b2",
-        "launch": "2026-10-31T04:13:01.000Z",
-        "deploy": "2026-10-31T05:16:15.300Z",
+        "launch": "2026-10-31T04:03:34.000Z",
+        "deploy": "2026-10-31T05:06:48.300Z",
         "launch_window": {
-          "start": "2026-10-31T04:13:01.000Z",
-          "end": "2026-10-31T04:39:24.000Z"
+          "start": "2026-10-31T04:03:34.000Z",
+          "end": "2026-10-31T04:04:33.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B2 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T05:16:15.300019",
-            "MEAN_MOTION": 16.05675036,
-            "ECCENTRICITY": 0.0011332,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:06:48.300019",
+            "MEAN_MOTION": 16.05683913,
+            "ECCENTRICITY": 0.0011336,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 178.2765,
-            "ARG_OF_PERICENTER": 277.1546,
-            "MEAN_ANOMALY": 101.4002,
+            "RA_OF_ASC_NODE": 175.9075,
+            "ARG_OF_PERICENTER": 277.2433,
+            "MEAN_ANOMALY": 101.3108,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.0014056,
-            "MEAN_MOTION_DOT": 0.010391,
+            "BSTAR": 0.0014468,
+            "MEAN_MOTION_DOT": 0.010709,
             "MEAN_MOTION_DDOT": 0,
-            "RMS": "0.098",
+            "RMS": "0.096",
             "DATA_SOURCE": "SpaceX-SV"
           }
         ]
@@ -108,32 +108,32 @@
         "backup_number": 3,
         "celestrak_name": "Starlink G15-18 - Backup #3",
         "celestrak_file": "starlink-g15-18b3",
-        "launch": "2026-10-31T04:39:25.000Z",
-        "deploy": "2026-10-31T05:42:39.300Z",
+        "launch": "2026-10-31T04:04:34.000Z",
+        "deploy": "2026-10-31T05:07:48.300Z",
         "launch_window": {
-          "start": "2026-10-31T04:39:25.000Z",
-          "end": "2026-10-31T04:49:24.000Z"
+          "start": "2026-10-31T04:04:34.000Z",
+          "end": "2026-10-31T04:05:37.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B3 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T05:42:39.299990",
-            "MEAN_MOTION": 16.05680419,
-            "ECCENTRICITY": 0.0011303,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:07:48.299981",
+            "MEAN_MOTION": 16.05683992,
+            "ECCENTRICITY": 0.0011336,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 184.8945,
-            "ARG_OF_PERICENTER": 276.9861,
-            "MEAN_ANOMALY": 101.5681,
+            "RA_OF_ASC_NODE": 176.1582,
+            "ARG_OF_PERICENTER": 277.2362,
+            "MEAN_ANOMALY": 101.318,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.001421,
-            "MEAN_MOTION_DOT": 0.010511,
+            "BSTAR": 0.0014473,
+            "MEAN_MOTION_DOT": 0.010713,
             "MEAN_MOTION_DDOT": 0,
-            "RMS": "0.103",
+            "RMS": "0.097",
             "DATA_SOURCE": "SpaceX-SV"
           }
         ]
@@ -142,32 +142,32 @@
         "backup_number": 4,
         "celestrak_name": "Starlink G15-18 - Backup #4",
         "celestrak_file": "starlink-g15-18b4",
-        "launch": "2026-10-31T04:49:25.000Z",
-        "deploy": "2026-10-31T05:52:39.300Z",
+        "launch": "2026-10-31T04:05:38.000Z",
+        "deploy": "2026-10-31T05:08:52.300Z",
         "launch_window": {
-          "start": "2026-10-31T04:49:25.000Z",
-          "end": "2026-10-31T05:05:48.000Z"
+          "start": "2026-10-31T04:05:38.000Z",
+          "end": "2026-10-31T04:06:19.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B4 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T05:52:39.300038",
-            "MEAN_MOTION": 16.05682781,
-            "ECCENTRICITY": 0.0011293,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:08:52.300003",
+            "MEAN_MOTION": 16.05684084,
+            "ECCENTRICITY": 0.0011336,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 187.4014,
-            "ARG_OF_PERICENTER": 276.9883,
-            "MEAN_ANOMALY": 101.5656,
+            "RA_OF_ASC_NODE": 176.4256,
+            "ARG_OF_PERICENTER": 277.2283,
+            "MEAN_ANOMALY": 101.3259,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.0014252,
-            "MEAN_MOTION_DOT": 0.010544,
+            "BSTAR": 0.0014479,
+            "MEAN_MOTION_DOT": 0.010718,
             "MEAN_MOTION_DDOT": 0,
-            "RMS": "0.105",
+            "RMS": "0.097",
             "DATA_SOURCE": "SpaceX-SV"
           }
         ]
@@ -176,32 +176,32 @@
         "backup_number": 5,
         "celestrak_name": "Starlink G15-18 - Backup #5",
         "celestrak_file": "starlink-g15-18b5",
-        "launch": "2026-10-31T05:05:49.000Z",
-        "deploy": "2026-10-31T06:09:03.300Z",
+        "launch": "2026-10-31T04:06:20.000Z",
+        "deploy": "2026-10-31T05:09:34.300Z",
         "launch_window": {
-          "start": "2026-10-31T05:05:49.000Z",
-          "end": "2026-10-31T05:32:12.000Z"
+          "start": "2026-10-31T04:06:20.000Z",
+          "end": "2026-10-31T04:06:28.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B5 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T06:09:03.299962",
-            "MEAN_MOTION": 16.05687693,
-            "ECCENTRICITY": 0.0011291,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:09:34.299994",
+            "MEAN_MOTION": 16.05684137,
+            "ECCENTRICITY": 0.0011335,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 191.5126,
-            "ARG_OF_PERICENTER": 277.0325,
-            "MEAN_ANOMALY": 101.5211,
+            "RA_OF_ASC_NODE": 176.6011,
+            "ARG_OF_PERICENTER": 277.2233,
+            "MEAN_ANOMALY": 101.3309,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.001431,
-            "MEAN_MOTION_DOT": 0.010591,
+            "BSTAR": 0.0014483,
+            "MEAN_MOTION_DOT": 0.010721,
             "MEAN_MOTION_DDOT": 0,
-            "RMS": "0.108",
+            "RMS": "0.097",
             "DATA_SOURCE": "SpaceX-SV"
           }
         ]
@@ -210,32 +210,168 @@
         "backup_number": 6,
         "celestrak_name": "Starlink G15-18 - Backup #6",
         "celestrak_file": "starlink-g15-18b6",
-        "launch": "2026-10-31T05:32:13.000Z",
-        "deploy": "2026-10-31T06:35:27.300Z",
+        "launch": "2026-10-31T04:06:29.000Z",
+        "deploy": "2026-10-31T05:09:43.300Z",
         "launch_window": {
-          "start": "2026-10-31T05:32:13.000Z",
-          "end": "2026-10-31T05:39:24.000Z"
+          "start": "2026-10-31T04:06:29.000Z",
+          "end": "2026-10-31T04:06:57.000Z"
         },
         "data": [
           {
             "OBJECT_NAME": "STARLINK-G15-18B6 SINGLE",
-            "OBJECT_ID": "2026-245B",
-            "EPOCH": "2026-10-31T06:35:27.300019",
-            "MEAN_MOTION": 16.05694892,
-            "ECCENTRICITY": 0.001131,
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:09:43.300022",
+            "MEAN_MOTION": 16.05684143,
+            "ECCENTRICITY": 0.0011335,
             "INCLINATION": 70.0038,
-            "RA_OF_ASC_NODE": 198.1307,
-            "ARG_OF_PERICENTER": 276.9354,
-            "MEAN_ANOMALY": 101.6178,
+            "RA_OF_ASC_NODE": 176.6387,
+            "ARG_OF_PERICENTER": 277.2223,
+            "MEAN_ANOMALY": 101.3318,
             "EPHEMERIS_TYPE": 0,
             "CLASSIFICATION_TYPE": "C",
             "NORAD_CAT_ID": 72001,
             "ELEMENT_SET_NO": 0,
             "REV_AT_EPOCH": 1,
-            "BSTAR": 0.001439,
-            "MEAN_MOTION_DOT": 0.010657,
+            "BSTAR": 0.0014484,
+            "MEAN_MOTION_DOT": 0.010721,
             "MEAN_MOTION_DDOT": 0,
-            "RMS": "0.111",
+            "RMS": "0.097",
+            "DATA_SOURCE": "SpaceX-SV"
+          }
+        ]
+      },
+      {
+        "backup_number": 7,
+        "celestrak_name": "Starlink G15-18 - Backup #7",
+        "celestrak_file": "starlink-g15-18b7",
+        "launch": "2026-10-31T04:07:56.000Z",
+        "deploy": "2026-10-31T05:11:10.300Z",
+        "launch_window": {
+          "start": "2026-10-31T04:07:56.000Z",
+          "end": "2026-10-31T04:08:10.000Z"
+        },
+        "data": [
+          {
+            "OBJECT_NAME": "STARLINK-G15-18B7 SINGLE",
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:11:10.299984",
+            "MEAN_MOTION": 16.05684278,
+            "ECCENTRICITY": 0.0011335,
+            "INCLINATION": 70.0038,
+            "RA_OF_ASC_NODE": 177.0022,
+            "ARG_OF_PERICENTER": 277.2112,
+            "MEAN_ANOMALY": 101.3429,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "C",
+            "NORAD_CAT_ID": 72001,
+            "ELEMENT_SET_NO": 0,
+            "REV_AT_EPOCH": 1,
+            "BSTAR": 0.0014492,
+            "MEAN_MOTION_DOT": 0.010728,
+            "MEAN_MOTION_DDOT": 0,
+            "RMS": "0.097",
+            "DATA_SOURCE": "SpaceX-SV"
+          }
+        ]
+      },
+      {
+        "backup_number": 8,
+        "celestrak_name": "Starlink G15-18 - Backup #8",
+        "celestrak_file": "starlink-g15-18b8",
+        "launch": "2026-10-31T04:08:11.000Z",
+        "deploy": "2026-10-31T05:11:25.300Z",
+        "launch_window": {
+          "start": "2026-10-31T04:08:11.000Z",
+          "end": "2026-10-31T04:08:36.000Z"
+        },
+        "data": [
+          {
+            "OBJECT_NAME": "STARLINK-G15-18B8 SINGLE",
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:11:25.299974",
+            "MEAN_MOTION": 16.05684308,
+            "ECCENTRICITY": 0.0011335,
+            "INCLINATION": 70.0038,
+            "RA_OF_ASC_NODE": 177.0648,
+            "ARG_OF_PERICENTER": 277.2091,
+            "MEAN_ANOMALY": 101.345,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "C",
+            "NORAD_CAT_ID": 72001,
+            "ELEMENT_SET_NO": 0,
+            "REV_AT_EPOCH": 1,
+            "BSTAR": 0.0014493,
+            "MEAN_MOTION_DOT": 0.010729,
+            "MEAN_MOTION_DDOT": 0,
+            "RMS": "0.097",
+            "DATA_SOURCE": "SpaceX-SV"
+          }
+        ]
+      },
+      {
+        "backup_number": 9,
+        "celestrak_name": "Starlink G15-18 - Backup #9",
+        "celestrak_file": "starlink-g15-18b9",
+        "launch": "2026-10-31T04:08:37.000Z",
+        "deploy": "2026-10-31T05:11:51.300Z",
+        "launch_window": {
+          "start": "2026-10-31T04:08:37.000Z",
+          "end": "2026-10-31T04:09:57.000Z"
+        },
+        "data": [
+          {
+            "OBJECT_NAME": "STARLINK-G15-18B9 SINGLE",
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:11:51.299981",
+            "MEAN_MOTION": 16.0568435,
+            "ECCENTRICITY": 0.0011335,
+            "INCLINATION": 70.0038,
+            "RA_OF_ASC_NODE": 177.1735,
+            "ARG_OF_PERICENTER": 277.2057,
+            "MEAN_ANOMALY": 101.3484,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "C",
+            "NORAD_CAT_ID": 72001,
+            "ELEMENT_SET_NO": 0,
+            "REV_AT_EPOCH": 1,
+            "BSTAR": 0.0014496,
+            "MEAN_MOTION_DOT": 0.010731,
+            "MEAN_MOTION_DDOT": 0,
+            "RMS": "0.097",
+            "DATA_SOURCE": "SpaceX-SV"
+          }
+        ]
+      },
+      {
+        "backup_number": 10,
+        "celestrak_name": "Starlink G15-18 - Backup #10",
+        "celestrak_file": "starlink-g15-18b10",
+        "launch": "2026-10-31T04:09:59.000Z",
+        "deploy": "2026-10-31T05:13:13.300Z",
+        "launch_window": {
+          "start": "2026-10-31T04:09:59.000Z",
+          "end": "2026-10-31T04:10:35.000Z"
+        },
+        "data": [
+          {
+            "OBJECT_NAME": "STARLINK-G15-18B10 SINGLE",
+            "OBJECT_ID": "2026-246B",
+            "EPOCH": "2026-10-31T05:13:13.299974",
+            "MEAN_MOTION": 16.05684466,
+            "ECCENTRICITY": 0.0011335,
+            "INCLINATION": 70.0038,
+            "RA_OF_ASC_NODE": 177.5161,
+            "ARG_OF_PERICENTER": 277.1955,
+            "MEAN_ANOMALY": 101.3586,
+            "EPHEMERIS_TYPE": 0,
+            "CLASSIFICATION_TYPE": "C",
+            "NORAD_CAT_ID": 72001,
+            "ELEMENT_SET_NO": 0,
+            "REV_AT_EPOCH": 1,
+            "BSTAR": 0.0014503,
+            "MEAN_MOTION_DOT": 0.010736,
+            "MEAN_MOTION_DDOT": 0,
+            "RMS": "0.097",
             "DATA_SOURCE": "SpaceX-SV"
           }
         ]
