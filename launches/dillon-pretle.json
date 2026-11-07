@@ -1,18 +1,18 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-11-07T00:31:36.055Z",
+  "updatedAt": "2026-11-07T01:01:39.185Z",
   "missions": [
     {
       "mission": "USSF-432",
-      "launch": "Nov 07 2026 00:48:42 UTC",
+      "launch": null,
       "name": "USSF-432 PO",
       "tle1": "1 70224U 26251A   26311.03951389  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70224  70.0179 133.8740 0081884 163.4441 351.8927 16.26456410    09"
     },
     {
       "mission": "USSF-432",
-      "launch": "Nov 07 2026 00:48:42 UTC",
+      "launch": null,
       "name": "USSF-432",
       "tle1": "1 70224U 26251A   26311.07157407  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70224  70.0179 133.8693 0006920 342.9268 000.0000 16.05014307    02"
