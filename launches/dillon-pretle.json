@@ -1,18 +1,18 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-11-15T17:30:46.303Z",
+  "updatedAt": "2026-11-15T18:00:53.331Z",
   "missions": [
     {
       "mission": "Amazon Leo",
-      "launch": "Nov 15 2026 17:40:30 UTC",
+      "launch": null,
       "name": "Amazon Leo PO",
       "tle1": "1 70227U 26259A   26319.74824074  .00000000  00000-0  00000-0 0  9999",
       "tle2": "2 70227  51.8653 216.0402 0159399 098.8415 340.8000 15.79029257    06"
     },
     {
       "mission": "Amazon Leo",
-      "launch": "Nov 15 2026 17:40:30 UTC",
+      "launch": null,
       "name": "Amazon Leo",
       "tle1": "1 70227U 26259A   26319.78340278  .00000000  00000-0  00000-0 0  9992",
       "tle2": "2 70227  51.8653 215.9462 0013031 098.8824 180.6872 15.39000012    07"
