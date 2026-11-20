@@ -1,8 +1,22 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-11-20T21:00:54.296Z",
+  "updatedAt": "2026-11-20T21:33:31.543Z",
   "missions": [
+    {
+      "mission": "USSF-317",
+      "launch": "Nov 21 2026 04:20:35 UTC",
+      "name": "USSF-317 PO",
+      "tle1": "1 70228U 26261A   26325.18665509  .00000000  00000-0  00000-0 0  9994",
+      "tle2": "2 70228  70.0179 200.7889 0081884 163.4441 351.8927 16.26456410    01"
+    },
+    {
+      "mission": "USSF-317",
+      "launch": "Nov 21 2026 04:20:35 UTC",
+      "name": "USSF-317",
+      "tle1": "1 70228U 26261A   26325.21871528  .00000000  00000-0  00000-0 0  9998",
+      "tle2": "2 70228  70.0179 200.7842 0006920 342.9268 000.0000 16.05014307    06"
+    },
     {
       "mission": "Amazon Leo",
       "launch": null,
