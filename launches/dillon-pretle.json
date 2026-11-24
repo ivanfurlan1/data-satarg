@@ -1,18 +1,18 @@
 {
   "source": "Dillon Space Page",
   "sourceUrl": "https://dillonsspacepage.com/pretle",
-  "updatedAt": "2026-11-24T16:01:37.969Z",
+  "updatedAt": "2026-11-24T16:31:36.919Z",
   "missions": [
     {
       "mission": "USSF-266",
-      "launch": "Nov 24 2026 16:08:59 UTC",
+      "launch": null,
       "name": "USSF-266 PO",
       "tle1": "1 70230U 26265A   26328.67880787  .00000000  00000-0  00000-0 0  9995",
       "tle2": "2 70230  80.0035 013.6688 0091027 156.2710 000.8000 16.22302114    03"
     },
     {
       "mission": "USSF-266",
-      "launch": "Nov 24 2026 16:08:59 UTC",
+      "launch": null,
       "name": "USSF-266",
       "tle1": "1 70230U 26265A   26328.70956019  .00000000  00000-0  00000-0 0  9991",
       "tle2": "2 70230  80.0035 013.6676 0015056 156.2704 180.4336 16.04016431    02"
